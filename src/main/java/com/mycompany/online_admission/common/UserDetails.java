@@ -27,6 +27,15 @@ public class UserDetails implements Serializable{
         this.portfolio = portfolio;
     }
 
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
+    }
+
+    
     public Integer getId() {
         return id;
     }
