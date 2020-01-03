@@ -22,5 +22,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * **Alexandru Dorobantiu** - [Web](https://alex.dorobantiu.ro/) - [Git](https://github.com/AlexDorobantiu)
-* Inspiration
-* etc
