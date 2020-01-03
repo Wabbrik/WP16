@@ -1,7 +1,7 @@
-Sat Dec 07 17:25:04 EET 2019 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Fri Jan 03 00:30:49 EET 2020 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat Dec 07 17:25:28 EET 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016e-e0f6-ca1d-fffffa2cea37 
+Fri Jan 03 00:30:49 EET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016f-6861-eaee-fffffa2cea37 
 on database directory D:\NetbeansProjects\OnlineAdmission\database\admissiondb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/D:/GlassFish/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,7 +12,7 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\NetbeansProjects\OnlineAdmission\database
 Database Class Loader started - derby.database.classpath=''
-Sat Dec 07 17:25:29 EET 2019 Thread[DRDAConnThread_2,5,main] (XID = 299), (SESSIONID = 0), (DATABASE = admissiondb), (DRDAID = {1}), Cleanup action starting
+Fri Jan 03 00:30:50 EET 2020 Thread[DRDAConnThread_2,5,main] (XID = 305), (SESSIONID = 0), (DATABASE = admissiondb), (DRDAID = {1}), Cleanup action starting
 java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -66,10 +66,4 @@ ERROR 08004: Connection authentication failure occurred.  Reason: Invalid authen
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Sat Dec 07 17:25:29 EET 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = admissiondb), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..
-----------------------------------------------------------------
-Sat Dec 07 17:26:06 EET 2019: Shutting down Derby engine
-----------------------------------------------------------------
-Sat Dec 07 17:26:06 EET 2019:
-Shutting down instance a816c00e-016e-e0f6-ca1d-fffffa2cea37 on database directory D:\NetbeansProjects\OnlineAdmission\database\admissiondb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-----------------------------------------------------------------
+Fri Jan 03 00:30:50 EET 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = admissiondb), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..

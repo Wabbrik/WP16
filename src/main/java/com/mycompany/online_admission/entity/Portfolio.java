@@ -6,71 +6,37 @@
 package com.mycompany.online_admission.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="USERS")
-public class User implements Serializable {
+@Table(name="PORTFOLIOS")
+public class Portfolio implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String username;
-    private String email;
-    private String position;
-    private String password;
-    @OneToOne(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    private Portfolio portfolio;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Portfolio getPortfolio() {
-        return portfolio;
-    }
-
-    public void setPortfolio(Portfolio portfolio) {
-        this.portfolio = portfolio;
-    }
+   
+    @OneToOne
+    @JoinColumn(name="USER_KEY")
+    private User user;
     
+    @OneToMany(mappedBy ="portfolio",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Collection<Photo>photos;
+    
+    @OneToOne(mappedBy="portfolio",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    private RegistrationForm registrationForm;
 
     public Integer getId() {
         return id;
@@ -90,10 +56,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Portfolio)) {
             return false;
         }
-        User other = (User) object;
+        Portfolio other = (Portfolio) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -102,7 +68,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.online_admission.entity.User[ id=" + id + " ]";
+        return "com.mycompany.online_admission.entity.Portfolio[ id=" + id + " ]";
     }
     
 }
