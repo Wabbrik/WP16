@@ -12,30 +12,21 @@ import java.io.Serializable;
  *
  * @author Gabi
  */
-public class UserDetails implements Serializable{
+public class UserDetails implements Serializable {
+
     private Integer id;
     private String username;
     private String email;
     private String position;
-    private Portfolio portfolio;
 
-    public UserDetails(Integer id, String username, String email, String position, Portfolio portfolio) {
+    public UserDetails(Integer id, String username, String email, String position) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.position = position;
-        this.portfolio = portfolio;
+
     }
 
-    public Portfolio getPortfolio() {
-        return portfolio;
-    }
-
-    public void setPortfolio(Portfolio portfolio) {
-        this.portfolio = portfolio;
-    }
-
-    
     public Integer getId() {
         return id;
     }
@@ -67,5 +58,5 @@ public class UserDetails implements Serializable{
     public void setPosition(String position) {
         this.position = position;
     }
-    
+
 }
