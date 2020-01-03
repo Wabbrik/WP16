@@ -5,6 +5,7 @@
  */
 package com.mycompany.online_admission.common;
 
+import com.mycompany.online_admission.entity.Portfolio;
 import java.io.Serializable;
 
 /**
@@ -16,12 +17,14 @@ public class UserDetails implements Serializable{
     private String username;
     private String email;
     private String position;
+    private Portfolio portfolio;
 
-    public UserDetails(Integer id, String username, String email, String position) {
+    public UserDetails(Integer id, String username, String email, String position, Portfolio portfolio) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.position = position;
+        this.portfolio = portfolio;
     }
 
     public Integer getId() {
