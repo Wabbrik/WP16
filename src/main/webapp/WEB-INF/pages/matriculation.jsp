@@ -42,7 +42,7 @@
 
 
 
-    <form class="form-matriculation" method="POST" action="">
+    <form class="form-matriculation" method="POST" action="${pageContext.request.contextPath}/AddRegistrationFormToPortfolio">
         <h5>Datele personale:</h5>
         <hr>
         <div class="row mb-2">
