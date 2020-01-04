@@ -48,13 +48,14 @@ public class AddUser extends HttpServlet {
         }
         if(create==true){
             userBean.createUser(username, email, passwordSha256, position);
-            request.setAttribute("message", "L-ai inregistrat cu succes pe ");
+            request.setAttribute("message1", "L-ai inregistrat cu succes pe ");
             request.setAttribute("message2", username);
         }else{
-            request.setAttribute("message", "Username sau email deja in uz!");
+            request.setAttribute("message1", "Username sau email deja in uz!");
         }
-        response.sendRedirect(request.getContextPath()+"/Users");
-        
+        //response.sendRedirect(request.getContextPath()+"/Users");
+        request.getRequestDispatcher(request.getContextPath()+ "/Users").forward(request,response);
+        //request.getRequestDispatcher("/WEB-INF/pages/user/users.jsp").forward(request, response);
        
         
         

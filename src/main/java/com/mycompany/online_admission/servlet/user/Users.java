@@ -17,25 +17,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Users", urlPatterns = {"/Users"})
 public class Users extends HttpServlet {
 
-   @Inject
-   UserBean userBean;
+    @Inject
+    UserBean userBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("activePage","Users");
-        List<UserDetails>users=userBean.getAllUsers();
-        request.setAttribute("users",users);
+        request.setAttribute("activePage", "Users");
+        List<UserDetails> users = userBean.getAllUsers();
+        request.setAttribute("users", users);
+        String message1 = request.getParameter("message1");
+        String message2 = request.getParameter("message2");
+        if(message1 != null && message2 != null){
+            request.setAttribute("message1", message1);
+            request.setAttribute("message2", message2);
+        }
+        else{
+           request.setAttribute("message1", message1);
+        }
         request.getRequestDispatcher("/WEB-INF/pages/user/users.jsp").forward(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Users v1.0";
