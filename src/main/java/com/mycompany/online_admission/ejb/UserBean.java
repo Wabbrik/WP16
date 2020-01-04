@@ -49,14 +49,17 @@ public class UserBean {
         em.persist(user);
     }
 
-    public PhotoDetails findPhotoByUserId(Integer userId, int index) {
+    public List<PhotoDetails> findPhotosByUserId(Integer userId) {
         TypedQuery<Photo> tQ = em.createQuery("SELECT p FROM Photo p where p.portfolio.id = :id", Photo.class).setParameter("id", userId);
         List<Photo> photos = tQ.getResultList();
         if (photos.isEmpty()) {
             return null;
         }
-        Photo photo = photos.get(index);
-        return new PhotoDetails(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent());
+        List<PhotoDetails>photoDetails=new ArrayList<>();
+        for(Photo photo:photos){
+            photoDetails.add(new PhotoDetails(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent())); 
+        }
+        return photoDetails ;
     }
 
     public void addPhotoToPortfolio(Integer userId, String fileName, String fileType, byte[] fileContent) {
