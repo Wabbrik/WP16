@@ -13,6 +13,6 @@
                     ${message1}
                 </div>
             </c:if>
-        <meta http-equiv="refresh" content="3;url=http://localhost:8080/WP16/Users"/>    
+        <meta http-equiv="refresh" content="3; url=http://localhost:8080/OnlineAdmission/Users"/>    
         </c:if>
 </t:pageTemplate>
