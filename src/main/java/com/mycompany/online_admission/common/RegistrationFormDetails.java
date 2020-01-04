@@ -10,12 +10,12 @@ package com.mycompany.online_admission.common;
  * @author Florin
  */
 public class RegistrationFormDetails {
-    private Integer id;
+   private Integer id;
     private String lastNameAtBirth;
     private String lastName;
     private String firstName;
-    private char dadFirstNameInitial;
-    private char momFirstNameIntitial;
+    private String dadFirstName;
+    private String momFirstName;
     private String pid;
     private String birthdateYear;
     private String birthdateMonth;
@@ -41,6 +41,7 @@ public class RegistrationFormDetails {
     private String contactParentPhoneNumber;
     private String contactEmail;
     private String disability;
+    private String preuniversitarStudiesInstitution;
     private String preuniversitarStudiesCountry;
     private String preuniversitarStudiesCounty;
     private String preuniversitarStudiesCity;
@@ -48,16 +49,90 @@ public class RegistrationFormDetails {
     private String preuniversitarStudiesLength;
     private String preuniversitarStudiesGraduationYear;
     private String preuniversitarStudiesType;
-    private String graduationDiplomaSeries;
-    private String graduationDiplomaNumber;
-    private String graduationDiplomaReleasedBy;
-    private String graduationDiplomaReleaseDateYear;
     private String bacDiplomaSeries;
     private String bacDiplomaNumber;
     private String bacDiplomaReleasedBy;
     private String bacDiplomaReleaseDateYear;
     private String remarks;
-    private String[] options;
+    private String option1;
+    private String option2;
+    private String option3;
+
+    public String getOption1() {
+        return option1;
+    }
+
+    public void setOption1(String option1) {
+        this.option1 = option1;
+    }
+
+    public String getOption2() {
+        return option2;
+    }
+
+    public void setOption2(String option2) {
+        this.option2 = option2;
+    }
+
+    public String getOption3() {
+        return option3;
+    }
+
+    public void setOption3(String option3) {
+        this.option3 = option3;
+    }
+
+    public RegistrationFormDetails(Integer id, String lastNameAtBirth, String lastName, String firstName, String dadFirstName, String momFirstName, String pid, String birthdateYear, String birthdateMonth, String birthdateDay, String placeOfBirthCountry, String placeOfBirthCounty, String placeOfBirthCity, String civilStatus, String specialSocialSituation, String citizenship, String ethnicity, String homeAddressCountry, String homeAddressCounty, String homeAddressCity, String homeAddressStrNrFlAp, String idCardSeries, String idCardNumber, String idCardReleasedBy, String idCardReleaseDate, String idCardExpiryDate, String address, String contactPhoneNumber, String contactParentPhoneNumber, String contactEmail, String disability, String preuniversitarStudiesInstitution, String preuniversitarStudiesCountry, String preuniversitarStudiesCounty, String preuniversitarStudiesCity, String preuniversitarStudiesDomain, String preuniversitarStudiesLength, String preuniversitarStudiesGraduationYear, String preuniversitarStudiesType, String bacDiplomaSeries, String bacDiplomaNumber, String bacDiplomaReleasedBy, String bacDiplomaReleaseDateYear, String remarks, String option1, String option2, String option3) {
+        this.id = id;
+        this.lastNameAtBirth = lastNameAtBirth;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.dadFirstName = dadFirstName;
+        this.momFirstName = momFirstName;
+        this.pid = pid;
+        this.birthdateYear = birthdateYear;
+        this.birthdateMonth = birthdateMonth;
+        this.birthdateDay = birthdateDay;
+        this.placeOfBirthCountry = placeOfBirthCountry;
+        this.placeOfBirthCounty = placeOfBirthCounty;
+        this.placeOfBirthCity = placeOfBirthCity;
+        this.civilStatus = civilStatus;
+        this.specialSocialSituation = specialSocialSituation;
+        this.citizenship = citizenship;
+        this.ethnicity = ethnicity;
+        this.homeAddressCountry = homeAddressCountry;
+        this.homeAddressCounty = homeAddressCounty;
+        this.homeAddressCity = homeAddressCity;
+        this.homeAddressStrNrFlAp = homeAddressStrNrFlAp;
+        this.idCardSeries = idCardSeries;
+        this.idCardNumber = idCardNumber;
+        this.idCardReleasedBy = idCardReleasedBy;
+        this.idCardReleaseDate = idCardReleaseDate;
+        this.idCardExpiryDate = idCardExpiryDate;
+        this.address = address;
+        this.contactPhoneNumber = contactPhoneNumber;
+        this.contactParentPhoneNumber = contactParentPhoneNumber;
+        this.contactEmail = contactEmail;
+        this.disability = disability;
+        this.preuniversitarStudiesInstitution = preuniversitarStudiesInstitution;
+        this.preuniversitarStudiesCountry = preuniversitarStudiesCountry;
+        this.preuniversitarStudiesCounty = preuniversitarStudiesCounty;
+        this.preuniversitarStudiesCity = preuniversitarStudiesCity;
+        this.preuniversitarStudiesDomain = preuniversitarStudiesDomain;
+        this.preuniversitarStudiesLength = preuniversitarStudiesLength;
+        this.preuniversitarStudiesGraduationYear = preuniversitarStudiesGraduationYear;
+        this.preuniversitarStudiesType = preuniversitarStudiesType;
+        this.bacDiplomaSeries = bacDiplomaSeries;
+        this.bacDiplomaNumber = bacDiplomaNumber;
+        this.bacDiplomaReleasedBy = bacDiplomaReleasedBy;
+        this.bacDiplomaReleaseDateYear = bacDiplomaReleaseDateYear;
+        this.remarks = remarks;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+    }
+
+    
 
     public Integer getId() {
         return id;
@@ -91,20 +166,20 @@ public class RegistrationFormDetails {
         this.firstName = firstName;
     }
 
-    public char getDadFirstNameInitial() {
-        return dadFirstNameInitial;
+    public String getDadFirstName() {
+        return dadFirstName;
     }
 
-    public void setDadFirstNameInitial(char dadFirstNameInitial) {
-        this.dadFirstNameInitial = dadFirstNameInitial;
+    public void setDadFirstName(String dadFirstName) {
+        this.dadFirstName = dadFirstName;
     }
 
-    public char getMomFirstNameIntitial() {
-        return momFirstNameIntitial;
+    public String getMomFirstName() {
+        return momFirstName;
     }
 
-    public void setMomFirstNameIntitial(char momFirstNameIntitial) {
-        this.momFirstNameIntitial = momFirstNameIntitial;
+    public void setMomFirstName(String momFirstName) {
+        this.momFirstName = momFirstName;
     }
 
     public String getPid() {
@@ -307,6 +382,14 @@ public class RegistrationFormDetails {
         this.disability = disability;
     }
 
+    public String getPreuniversitarStudiesInstitution() {
+        return preuniversitarStudiesInstitution;
+    }
+
+    public void setPreuniversitarStudiesInstitution(String preuniversitarStudiesInstitution) {
+        this.preuniversitarStudiesInstitution = preuniversitarStudiesInstitution;
+    }
+
     public String getPreuniversitarStudiesCountry() {
         return preuniversitarStudiesCountry;
     }
@@ -363,38 +446,6 @@ public class RegistrationFormDetails {
         this.preuniversitarStudiesType = preuniversitarStudiesType;
     }
 
-    public String getGraduationDiplomaSeries() {
-        return graduationDiplomaSeries;
-    }
-
-    public void setGraduationDiplomaSeries(String graduationDiplomaSeries) {
-        this.graduationDiplomaSeries = graduationDiplomaSeries;
-    }
-
-    public String getGraduationDiplomaNumber() {
-        return graduationDiplomaNumber;
-    }
-
-    public void setGraduationDiplomaNumber(String graduationDiplomaNumber) {
-        this.graduationDiplomaNumber = graduationDiplomaNumber;
-    }
-
-    public String getGraduationDiplomaReleasedBy() {
-        return graduationDiplomaReleasedBy;
-    }
-
-    public void setGraduationDiplomaReleasedBy(String graduationDiplomaReleasedBy) {
-        this.graduationDiplomaReleasedBy = graduationDiplomaReleasedBy;
-    }
-
-    public String getGraduationDiplomaReleaseDateYear() {
-        return graduationDiplomaReleaseDateYear;
-    }
-
-    public void setGraduationDiplomaReleaseDateYear(String graduationDiplomaReleaseDateYear) {
-        this.graduationDiplomaReleaseDateYear = graduationDiplomaReleaseDateYear;
-    }
-
     public String getBacDiplomaSeries() {
         return bacDiplomaSeries;
     }
@@ -435,12 +486,6 @@ public class RegistrationFormDetails {
         this.remarks = remarks;
     }
 
-    public String[] getOptions() {
-        return options;
-    }
-
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
+     
     
 }

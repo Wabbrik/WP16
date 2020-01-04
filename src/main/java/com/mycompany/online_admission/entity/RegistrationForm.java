@@ -12,9 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name="REGISTRATIONFORMS")
 public class RegistrationForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,8 +26,8 @@ public class RegistrationForm implements Serializable {
     private String lastNameAtBirth;
     private String lastName;
     private String firstName;
-    private char dadFirstNameInitial;
-    private char momFirstNameIntitial;
+    private String dadFirstName;
+    private String momFirstName;
     private String pid;
     private String birthdateYear;
     private String birthdateMonth;
@@ -51,6 +53,7 @@ public class RegistrationForm implements Serializable {
     private String contactParentPhoneNumber;
     private String contactEmail;
     private String disability;
+    private String preuniversitarStudiesInstitution;
     private String preuniversitarStudiesCountry;
     private String preuniversitarStudiesCounty;
     private String preuniversitarStudiesCity;
@@ -58,20 +61,51 @@ public class RegistrationForm implements Serializable {
     private String preuniversitarStudiesLength;
     private String preuniversitarStudiesGraduationYear;
     private String preuniversitarStudiesType;
-    private String graduationDiplomaSeries;
-    private String graduationDiplomaNumber;
-    private String graduationDiplomaReleasedBy;
-    private String graduationDiplomaReleaseDateYear;
     private String bacDiplomaSeries;
     private String bacDiplomaNumber;
     private String bacDiplomaReleasedBy;
     private String bacDiplomaReleaseDateYear;
     private String remarks;
-    private String[] options;//domeniu studii/specializare,maxim 34
-    
+    private String option1;
+    private String option2;
+    private String option3;
     @OneToOne
     @JoinColumn(name="PORTFOLIO_KEY")
     private Portfolio portfolio;
+
+    public String getOption1() {
+        return option1;
+    }
+
+    public void setOption1(String option1) {
+        this.option1 = option1;
+    }
+
+    public String getOption2() {
+        return option2;
+    }
+
+    public void setOption2(String option2) {
+        this.option2 = option2;
+    }
+
+    public String getOption3() {
+        return option3;
+    }
+
+    public void setOption3(String option3) {
+        this.option3 = option3;
+    }
+    
+   
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getLastNameAtBirth() {
         return lastNameAtBirth;
@@ -97,20 +131,20 @@ public class RegistrationForm implements Serializable {
         this.firstName = firstName;
     }
 
-    public char getDadFirstNameInitial() {
-        return dadFirstNameInitial;
+    public String getDadFirstName() {
+        return dadFirstName;
     }
 
-    public void setDadFirstNameInitial(char dadFirstNameInitial) {
-        this.dadFirstNameInitial = dadFirstNameInitial;
+    public void setDadFirstName(String dadFirstName) {
+        this.dadFirstName = dadFirstName;
     }
 
-    public char getMomFirstNameIntitial() {
-        return momFirstNameIntitial;
+    public String getMomFirstName() {
+        return momFirstName;
     }
 
-    public void setMomFirstNameIntitial(char momFirstNameIntitial) {
-        this.momFirstNameIntitial = momFirstNameIntitial;
+    public void setMomFirstName(String momFirstName) {
+        this.momFirstName = momFirstName;
     }
 
     public String getPid() {
@@ -313,6 +347,14 @@ public class RegistrationForm implements Serializable {
         this.disability = disability;
     }
 
+    public String getPreuniversitarStudiesInstitution() {
+        return preuniversitarStudiesInstitution;
+    }
+
+    public void setPreuniversitarStudiesInstitution(String preuniversitarStudiesInstitution) {
+        this.preuniversitarStudiesInstitution = preuniversitarStudiesInstitution;
+    }
+
     public String getPreuniversitarStudiesCountry() {
         return preuniversitarStudiesCountry;
     }
@@ -369,38 +411,6 @@ public class RegistrationForm implements Serializable {
         this.preuniversitarStudiesType = preuniversitarStudiesType;
     }
 
-    public String getGraduationDiplomaSeries() {
-        return graduationDiplomaSeries;
-    }
-
-    public void setGraduationDiplomaSeries(String graduationDiplomaSeries) {
-        this.graduationDiplomaSeries = graduationDiplomaSeries;
-    }
-
-    public String getGraduationDiplomaNumber() {
-        return graduationDiplomaNumber;
-    }
-
-    public void setGraduationDiplomaNumber(String graduationDiplomaNumber) {
-        this.graduationDiplomaNumber = graduationDiplomaNumber;
-    }
-
-    public String getGraduationDiplomaReleasedBy() {
-        return graduationDiplomaReleasedBy;
-    }
-
-    public void setGraduationDiplomaReleasedBy(String graduationDiplomaReleasedBy) {
-        this.graduationDiplomaReleasedBy = graduationDiplomaReleasedBy;
-    }
-
-    public String getGraduationDiplomaReleaseDateYear() {
-        return graduationDiplomaReleaseDateYear;
-    }
-
-    public void setGraduationDiplomaReleaseDateYear(String graduationDiplomaReleaseDateYear) {
-        this.graduationDiplomaReleaseDateYear = graduationDiplomaReleaseDateYear;
-    }
-
     public String getBacDiplomaSeries() {
         return bacDiplomaSeries;
     }
@@ -441,23 +451,15 @@ public class RegistrationForm implements Serializable {
         this.remarks = remarks;
     }
 
-    public String[] getOptions() {
-        return options;
+    public Portfolio getPortfolio() {
+        return portfolio;
     }
 
-    public void setOptions(String[] options) {
-        this.options = options;
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
     }
     
     
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Override
     public int hashCode() {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.online_admission.servlet.registration_form;
+package com.mycompany.online_admission.servlet.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Florin
+ * @author Gabi
  */
-@WebServlet(name = "RegistrationForms", urlPatterns = {"/RegistrationForms"})
-public class RegistrationForms extends HttpServlet {
+@WebServlet(name = "AddPhotosToUser", urlPatterns = {"/AddPhotosToUser"})
+public class AddPhotosToUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class RegistrationForms extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegistrationForms</title>");            
+            out.println("<title>Servlet AddPhotosToUser</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegistrationForms at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddPhotosToUser at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

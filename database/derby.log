@@ -12,3 +12,12 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\NetbeansProjects\OnlineAdmission\database
 Database Class Loader started - derby.database.classpath=''
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 257.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 273.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 289.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,14) was not found in index with conglomerate id 257.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,14) was not found in index with conglomerate id 273.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,14) was not found in index with conglomerate id 289.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 257.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 273.  This problem has automatically been corrected as part of the delete operation.
+Warning: While deleting a row from a table the index row for base table row (1,12) was not found in index with conglomerate id 289.  This problem has automatically been corrected as part of the delete operation.

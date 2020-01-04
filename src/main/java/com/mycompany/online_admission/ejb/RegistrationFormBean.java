@@ -20,4 +20,7 @@ public class RegistrationFormBean {
     private static final Logger LOG = Logger.getLogger(RegistrationFormBean.class.getName());
     @PersistenceContext 
     private EntityManager em;
+    
+    //addRegistrationFormToUser()
+    //getRegistrationFormById()
 }
