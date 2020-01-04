@@ -52,13 +52,9 @@ public class AddUser extends HttpServlet {
             request.setAttribute("message2", username);
         }else{
             request.setAttribute("message1", "Username sau email deja in uz!");
-        }
+        }       
         //response.sendRedirect(request.getContextPath()+"/Users");
         request.getRequestDispatcher(request.getContextPath()+ "/Users").forward(request,response);
-        //request.getRequestDispatcher("/WEB-INF/pages/user/users.jsp").forward(request, response);
-       
-        
-        
         
     }
 
