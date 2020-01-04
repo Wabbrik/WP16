@@ -21,6 +21,9 @@
       <li class="nav-item ${pageContext.request.requestURI eq 'Users' ? ' active' : ''}">
           <a class="nav-link" href="${pageContext.request.contextPath}/Users">Utilizatori</a>
       </li>
+      <li class="nav-item ${pageContext.request.requestURI eq 'Portfolios' ? ' active' : ''}">
+          <a class="nav-link" href="${pageContext.request.contextPath}/Portfolios">Dosare</a>
+      </li>
         </c:if>
         <c:if test="${pageContext.request.isUserInRole('SecretaryRole')}">
       <li class="nav-item ${pageContext.request.requestURI eq 'Portfolios' ? ' active' : ''}">

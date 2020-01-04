@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import javax.persistence.TypedQuery;
 
 @Stateless
@@ -22,10 +23,12 @@ public class UserBean {
 
     public List<UserDetails> getAllUsers() {
         LOG.info("getAllUsers");
+
         try {
             List<User> users = (List<User>) em.createQuery("SELECT u FROM User u").getResultList();
             return copyUsersToDetails(users);
         } catch (Exception ex) {
+
             EJBException(ex);
         }
         return null;
@@ -34,7 +37,8 @@ public class UserBean {
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detList = new ArrayList<>();
         for (User user : users) {
-            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(),user.getValid());
+            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(), user.getValid());
+
             detList.add(ud);
         }
         return detList;
@@ -56,11 +60,11 @@ public class UserBean {
         if (photos.isEmpty()) {
             return null;
         }
-        List<PhotoDetails>photoDetails=new ArrayList<>();
-        for(Photo photo:photos){
-            photoDetails.add(new PhotoDetails(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent())); 
+        List<PhotoDetails> photoDetails = new ArrayList<>();
+        for (Photo photo : photos) {
+            photoDetails.add(new PhotoDetails(photo.getId(), photo.getFilename(), photo.getFileType(), photo.getFileContent()));
         }
-        return photoDetails ;
+        return photoDetails;
     }
 
     public void addPhotoToPortfolio(Integer userId, String fileName, String fileType, byte[] fileContent) {

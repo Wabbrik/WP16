@@ -23,18 +23,14 @@ public class Users extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         request.setAttribute("activePage", "Users");
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
-       /* String message1 = request.getParameter("message1");
-        String message2 = request.getParameter("message2");
-        if(message1 != null && message2 != null){
-            request.setAttribute("message1", message1);
-            request.setAttribute("message2", message2);
-        }
-        else{
-           request.setAttribute("message1", message1);
-        }*/
+     
+
+        
+
         request.getRequestDispatcher("/WEB-INF/pages/user/users.jsp").forward(request, response);
     }
 
