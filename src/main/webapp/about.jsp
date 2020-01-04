@@ -1,7 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
+<t:pageTemplate pageTitle="About">
+    <h2 class="mb-4 mt-2">Scurt Istoric:</h2>
+    <div class="entry-content entry clr mb-4">
 
-<t:pageTemplate pageTitle="About Parking Lot">
-    <h1>About this project</h1>
+        <p>Într-un oras în care diverse ramuri ale industriei constructoare de masini au o istorie însemnata, existenta unei facultăți tehnice este mai mult decât o necesitate.&nbsp;Merită amintit, ca reper semnificativ, faptul că între anii 1840 și 1918 în Sibiu funcționau 33 de întreprinderi cu caracter industrial, astfel că la acest capitol, Sibiul deținea primul loc în Transilvania în acele vremuri. Printre aceste întreprinderi figurau și UZINELE RIEGER, celebre printre altele pentru secția de turnătorie de fontă.</p>
+        <p>Intreprinderea își are originea în anul 1868, înființarea ei fiind datorată lui Andreas RIEGER, născut în anul 1839 în Apoldul de Sus. Câțiva ani mai târziu aceste uzine iau numele de INDEPENDENȚA, devenind totodată ,,mecanicul-șef al industriei constructoare de mașini a României”. De asemenea, în anul 1886 este prima atestare oficială a S.C. COMPA S.A., pentru care anul 1970 reprezintă o nouă piatră de hotar în dezvoltarea companiei, prin semnarea unor contracte importante cu compania MAN TRUCK. În mai mult de 100 de ani de tradiție a fabricației la Sibiu a aparatelor de cântărit, S.C. BALANȚA S.A. Sibiu a trecut prin câteva ipostaze care i-au marcat evoluția. Astfel, între anii 1879 – 1928 a fost prima „Fabrică de cântare” din România, pentru ca mai apoi să poarte numele de „Uzinele Hess”, iar mai apoi „Întreprinderea Balanța”. În anul 1975 s-a înființat firma Hidrosib care avea ca scop producerea de Echipamente Hidraulice și Pneumatice, fiind principalul furnizor de astfel de echipamente din Europa de est până în 1990, echipamentele fiind executate sub licență Bosch.</p>
+        <p>În contextul dezvoltării industriei din Sibiu, Decretul nr. 203/30.06.1976 al Consiliului de Stat, prin care se înființează la Sibiu Institutul de Învățământ Superior, care cuprinde și Facultatea de Mecanică (specializarea Tehnologia Construcțiilor de Mașini, ingineri și subingineri), vine ca o confirmare a preocupărilor în domeniul tehnic al inginerilor sibieni, și nu numai.<br>
+            În anul 1986, prin Decretul nr. 213/23.06.1986, se transformă Institutul de Învățământ Superior din Sibiu în Institut de Subingineri cu personalitate juridică, subordonat Institutului Politehnic Cluj-Napoca, care a școlarizat ingineri în specializările Tehnologia Construcțiilor de Mașini, Mașini-Unelte, Utilaj Tehnologic, Automatizări și Calculatoare, Echipamente pentru Centrale Nucleare și subingineri în specializările Tehnologia Construcțiilor de Mașini și Electromecanică Tehnologică.</p>
+        <p>După Revoluția din decembrie 1989, mai exact în anul 1990, prin Hotărârea Guvernului României nr. 225/07.03.1990, Institutul de Subingineri se transformă în Universitatea din Sibiu, iar Facultatea de Mecanică devine Facultatea de Inginerie, fiind astfel „piatra de temelie” a Universității din Sibiu, universitate care în data de 12 mai 1995 primește numele marelui poet și filozof român Lucian Blaga, devenind astfel Universitatea “Lucian Blaga” din Sibiu.<br>
+            După anul 1990, Facultatea de Inginerie se dezvoltă și consolidează continuu prin autorizarea specializărilor existente, precum și prin propuneri și autorizări provizorii de funcționare a unor noi specializări și direcții de licență, master și doctorat.</p>
+        <p>Totodată, păstrând buna tradiție dezvoltată de-a lungul celor peste 37 de ani de activitate, Facultatea de Inginerie a ULBS are parteneriate și colaborări cu numeroase companii din județul Sibiu (și nu numai), printre care amintim: CONTINENTAL, TAKATA, SNR, MARQUARDT, SIEMENS, BRANDL, BILSTEIN, COMPA, TRANSGAZ, ROMGAZ, DACIA, WENGLOR, KROMBERG &amp; SCHUBERT ETC.</p>
+
+
+    </div>
 </t:pageTemplate>

@@ -6,7 +6,7 @@
     <class>com.mycompany.online_admission.entity.User</class>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/admissiondb"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/admissiondb2"/>
       <property name="javax.persistence.jdbc.user" value="admissiondb"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="1234"/>

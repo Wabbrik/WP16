@@ -16,15 +16,16 @@
         </div>
         
     </c:if>
+        
     <form class="form-signup" method="POST" action="${pageContext.request.contextPath}/Signup">
-        <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+        <h1 class="h3 mb-3 font-weight-normal text-center mt-2 mb-2">Sign Up</h1>
         <label for="username" class="sr-only">Username</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="username" name="username" class="form-control mb-2" placeholder="Username" required autofocus>
         <label for="email" class="sr-only">Email</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+        <input type="email" id="email" name="email" class="form-control mb-2" placeholder="Email" required>
         <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Sign Up</button>
         
         
         
