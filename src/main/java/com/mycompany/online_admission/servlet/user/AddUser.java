@@ -53,6 +53,7 @@ public class AddUser extends HttpServlet {
         }
 
         request.getRequestDispatcher("/WEB-INF/pages/redirect.jsp").forward(request, response);
+
     }
 
     @Override
