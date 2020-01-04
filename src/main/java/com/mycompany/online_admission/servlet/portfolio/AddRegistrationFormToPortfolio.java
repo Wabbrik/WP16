@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.online_admission.servlet.user;
+package com.mycompany.online_admission.servlet.portfolio;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Gabi
+ * @author Florin
  */
-@WebServlet(name = "AddPhotosToUser", urlPatterns = {"/AddPhotosToUser"})
-public class AddPhotosToUser extends HttpServlet {
+@WebServlet(name = "AddRegistrationFormToPortfolio", urlPatterns = {"/AddRegistrationFormToPortfolio"})
+public class AddRegistrationFormToPortfolio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class AddPhotosToUser extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddPhotosToUser</title>");            
+            out.println("<title>Servlet AddRegistrationFormToPortfolio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddPhotosToUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddRegistrationFormToPortfolio at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

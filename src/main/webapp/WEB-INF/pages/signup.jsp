@@ -9,7 +9,7 @@
         <div class="alert alert-warning" role="alert">
             ${message}
             <c:if test="${message2!=null}">
-                <meta http-equiv="refresh" content="5;url=http://localhost:8080/WP16-master/Login"/>
+                <meta http-equiv="refresh" content="5;url=http://localhost:8080/WP16/Login"/>
             </c:if>
             
             

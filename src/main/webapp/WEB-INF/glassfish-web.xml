@@ -6,11 +6,6 @@
         <role-name>AdminRole</role-name>
         <group-name>ADMINISTRATOR</group-name>
     </security-role-mapping>
-  
-    <security-role-mapping>
-        <role-name>ClientRole</role-name>
-        <group-name>ADMINISTRATOR</group-name>
-    </security-role-mapping>
     
     <security-role-mapping>
         <role-name>SecretaryRole</role-name>
@@ -24,11 +19,6 @@
     
     <security-role-mapping>
         <role-name>SecretaryRole</role-name>
-        <group-name>SECRETARY</group-name>
-    </security-role-mapping>
-    
-     <security-role-mapping>
-        <role-name>ClientRole</role-name>
         <group-name>SECRETARY</group-name>
     </security-role-mapping>
     
