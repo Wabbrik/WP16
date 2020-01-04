@@ -34,6 +34,14 @@ public class Portfolio implements Serializable {
     
     @OneToMany(mappedBy ="portfolio",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Collection<Photo>photos;
+
+    public Collection<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Collection<Photo> photos) {
+        this.photos = photos;
+    }
     
     @OneToOne(mappedBy="portfolio",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private RegistrationForm registrationForm;
