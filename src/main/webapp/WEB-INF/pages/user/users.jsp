@@ -8,19 +8,7 @@
         <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Users/Create" role="button">Adauga Utilizator</a> 
         </c:if>
-        <c:if test="${message1 != null}">
-            <c:if test="${message2 != null}">
-                <div class="alert alert-warning" role="alert">
-                    ${message1}${message2}
-                </div>
-            </c:if>
-            <c:if test="${message2 == null}">
-                <div class="alert alert-warning" role="alert">
-                    ${message1}
-                </div>
-            </c:if>
-
-        </c:if>
+        
         <div class="row">
             <div class="col-md-3">
                 <b> Username</b>

@@ -18,12 +18,22 @@ public class UserDetails implements Serializable {
     private String username;
     private String email;
     private String position;
+    private String valid;
 
-    public UserDetails(Integer id, String username, String email, String position) {
+    public String getValid() {
+        return valid;
+    }
+
+    public void setValid(String valid) {
+        this.valid = valid;
+    }
+
+    public UserDetails(Integer id, String username, String email, String position,String valid) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.position = position;
+        this.valid=valid;
 
     }
 

@@ -28,11 +28,20 @@ public class User implements Serializable {
     private String email;
     private String position;
     private String password;
+    private String valid;
     @OneToOne(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private Portfolio portfolio;
 
     public String getUsername() {
         return username;
+    }
+
+    public String getValid() {
+        return valid;
+    }
+
+    public void setValid(String valid) {
+        this.valid = valid;
     }
 
     public void setUsername(String username) {

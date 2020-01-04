@@ -34,7 +34,7 @@ public class UserBean {
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detList = new ArrayList<>();
         for (User user : users) {
-            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition());
+            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(),user.getValid());
             detList.add(ud);
         }
         return detList;
@@ -46,6 +46,7 @@ public class UserBean {
         user.setEmail(email);
         user.setPassword(passwordSha256);
         user.setPosition(position);
+        user.setValid("NEVALID");
         em.persist(user);
     }
 
