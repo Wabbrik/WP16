@@ -3,10 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="Portfolios">
+    <div class="container">
 
-    <h1>Dosare</h1>
-    
-        
+        <h2 class="mb-4 mt-4 text-center">Dosare</h2>
+
         <div class="row">
             <div class="col-sm-2">
                 <b>Nume</b>
@@ -21,7 +21,7 @@
                 <b>Buletin</b>
             </div>
         </div>   
-        
+
         <c:forEach var="rf" items="${registrationForms}" varStatus="status">
             <div class="row">
                 <div class="col-sm-2 mt-2">
@@ -38,15 +38,15 @@
                     ${rf.idCardNumber}
                 </div>
                 <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Update?id=${rf.id}" role="button">Vezi dosar complet</a> 
+                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Update?id=${rf.id}" role="button">Vezi dosar complet</a> 
                 </c:if>
                 <c:if test="${pageContext.request.isUserInRole('SecretaryRole')}">
-                <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Validate?id=${rf.id}&ascunde=${ascundeValidate}" role="button">Vezi dosar complet</a> 
+                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Validate?id=${rf.id}&ascunde=${ascundeValidate}" role="button">Vezi dosar complet</a> 
                 </c:if>
-                     
-        </c:forEach>
-        
-    
+
+            </c:forEach>
+
+        </div>
 
 
-</t:pageTemplate>
+    </t:pageTemplate>

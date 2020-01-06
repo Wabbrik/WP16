@@ -3,40 +3,50 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pageTemplate pageTitle="Users">
-    <h1>Utilizatori</h1>
-    <form method="POST" action = "${pageContext.request.contextPath}/Users">
-        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Users/Create" role="button">Adauga Utilizator</a> 
-         
-        
-        </c:if>
-        <button class="btn btn-danger" type="submit">Delete Users</button>
-        <div class="row">
-            <div class="col-md-3">
-                <b> Username</b>
-            </div>
-            <div class="col-md-3">
-                <b>Email</b>
-            </div>
-            <div class="col-md-3">
-                <b>Pozitie</b>
-            </div>
-        </div>   
-        <c:forEach var="user" items="${users}" varStatus="status">
-            <div class="row">
-<input type="checkbox" name="user_ids" value="${user.id}"/>
-                <div class="col-md-3">
-                    ${user.username}
-                </div>
-                <div class="col-md-3">
-                    ${user.email}
-                </div>
-                <div class="col-md-3">
-                    ${user.position}
-                </div>
-            </div>    
-        </c:forEach>
+    <div class="container">
+        <h2 class="mb-4 mt-4 text-center">Utilizatori</h2>
 
-    </form>
+        <form method="POST" action = "${pageContext.request.contextPath}/Users">
+            <%--<c:if test="${pageContext.request.isUserInRole('AdminRole')}">--%>
+            <a class="btn btn-primary " href="${pageContext.request.contextPath}/Users/Create" role="button">Adauga Utilizator</a> 
 
+
+            <%--</c:if>--%>
+            <button class="btn btn-danger" type="submit">Delete Users</button>
+
+
+
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center px-0" style="width:50px"></th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Pozitie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="user" items="${users}" varStatus="status">
+
+                        <tr>
+                            <th scope="row" class="text-center">
+                                <input type="checkbox" name="user_ids" value="${user.id}"/>
+                            </th>
+                            <td> 
+                                ${user.username}
+                            </td>
+                            <td> 
+                                ${user.email}
+                            </td>
+                            <td>
+                                ${user.position}
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>
 </t:pageTemplate>

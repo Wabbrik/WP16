@@ -3,84 +3,80 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:pageTemplate pageTitle="Add User">
-    <h1>Add User</h1>
-    
-    <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/Users/Create">
-        <div class="row">
-          <div class="col-md-6 mb-3">
+    <div class="container text-center">
+
+        <h2 class="mb-4 mt-4">Add User:</h2>
+
+
+        <form class="needs-validation form-signin text-center" novalidate method="POST" action="${pageContext.request.contextPath}/Users/Create">
+
             <label for="license_plate">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="" name="username" value="" required>
+            <input type="text" class="form-control mb-2 col-md-4 mx-auto" id="username" placeholder="" name="username" value="" required>
             <div class="invalid-feedback">
-              Username is required.
+                Username is required.
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
+
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="" value="" required>
+            <input type="email" class="form-control mb-2 col-md-4 mx-auto" id="email" name="email" placeholder="" value="" required>
             <div class="invalid-feedback">
-              Email is required.
+                Email is required.
+
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
+
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="" value="" required>
+            <input type="password" class="form-control mb-2 col-md-4 mx-auto" id="password" name="password" placeholder="" value="" required>
             <div class="invalid-feedback">
-              Password is required.
+                Password is required.
             </div>
-          </div>
-        </div>
-       
-        <div class="row">
-             <div class="col-md-6 mb-3">
+
+
+
+
             <label for="position">Position</label>
-            <select type="position" class="custom-select d-block w-100" id="position" name="position" required>
+            <select type="position" class="form-control mb-2 col-md-4 mx-auto" id="position" name="position" required>
                 <option value="">Choose...</option>
                 <option value="ADMINISTRATOR">Administrator</option>
                 <option value="SECRETARY">Secretara</option>
                 <option value="CLIENT">Client</option>
             </select>
             <div class="invalid-feedback">
-              Please select a position.
+                Please select a position.
             </div>
-          </div>
-        </div>
-        
-        
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
-      </form>
-    
-        <script>
-            (function () {
-                'use strict'
 
-                window.addEventListener('load', function () {
-                  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                  var forms = document.getElementsByClassName('needs-validation')
 
-                  // Loop over them and prevent submission
-                  Array.prototype.filter.call(forms, function (form) {
+
+            <hr class="mb-4">
+            <button class="btn btn-lg btn-primary btn-block col-md-2 mt-4 mb-3 mx-auto" type="submit">Save</button>
+        </form>
+    </div>
+
+
+    <script>
+        (function () {
+            'use strict'
+
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.filter.call(forms, function (form) {
                     form.addEventListener('submit', function (event) {
-                      if (form.checkValidity() === false) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                      }
-                      form.classList.add('was-validated')
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
                     }, false)
-                  })
-                }, false)
-              }());
-        </script>
-        
-    
-    
-    
-    
+                })
+            }, false)
+        }());
+    </script>
+
+
+
+
+
 
 </t:pageTemplate>
-    
-    
+

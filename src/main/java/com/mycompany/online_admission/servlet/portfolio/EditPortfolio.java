@@ -3,7 +3,6 @@ package com.mycompany.online_admission.servlet.portfolio;
 import com.mycompany.online_admission.common.RegistrationFormDetails;
 import com.mycompany.online_admission.ejb.RegistrationFormBean;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,7 +54,7 @@ public class EditPortfolio extends HttpServlet {
         String idCardReleasedBy = request.getParameter("idCardReleasedBy");
         String idCardReleaseDate = request.getParameter("idCardReleaseDate");
         String idCardExpiryDate = request.getParameter("idCardExpiryDate");
-        String address = request.getParameter("address");
+        String address = request.getParameter("address");           //TODO:????
         String contactPhoneNumber = request.getParameter("contactPhoneNumber");
         String contactParentPhoneNumber = request.getParameter("contactParentPhoneNumber");
         String contactEmail = request.getParameter("contactEmail");

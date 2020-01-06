@@ -3,7 +3,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:pageTemplate pageTitle="Redirect">
     <div class="alert alert-warning" role="alert">
-    ${message}
-    <meta http-equiv="refresh" content="2;url=http://localhost:8080/WP16"/>
+        ${message}
+        <meta http-equiv="refresh" content="2;url=http://localhost:8080/WP16"/>
     </div>
 </t:pageTemplate>

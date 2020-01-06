@@ -2,12 +2,11 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<footer class="footer mt-auto py-3" style="background-color: #333">
+<footer class="footer py-3 mt-auto" style="background-color: #333">
     <div class="container">
         <div class="row">
             <div class="col-md">
-                <p style="color: #dcdcdc">
+                <p style="color: #dcdcdc;font-size: 14px;" class="mb-0">
                     Contact:<br>
                     Adresa: Str.Emil Cioran Nr.4, Sibiu, 550025, Romania<br>
                     Tel: (+40) 0269 217 928<br>
@@ -17,7 +16,6 @@
                 </p>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright text-center py-3 text-light">© Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu
-    </div>
+        <div class="footer-copyright text-center text-light" style="font-size: 14px">© Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu
+        </div>
 </footer>

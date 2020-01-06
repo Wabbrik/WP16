@@ -19,7 +19,7 @@
     </head>
     <body class="d-flex flex-column h-100">
         <jsp:include page="/WEB-INF/pages/menu.jsp" />
-        <main role="main" class="container">
+        <main role="main">
             <jsp:doBody />
         </main>
         <jsp:include page="/WEB-INF/pages/footer.jsp" />
