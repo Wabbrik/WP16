@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "EditPortfolio", urlPatterns = {"/Portfolios/Update"})
 public class EditPortfolio extends HttpServlet {
-@Inject RegistrationFormBean registrationFormBean;
-    
-   
-    
+
+    @Inject
+    RegistrationFormBean registrationFormBean;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,7 +25,6 @@ public class EditPortfolio extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/portfoliosFullUpdate.jsp").forward(request, response);
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -75,12 +73,11 @@ public class EditPortfolio extends HttpServlet {
         String option1 = request.getParameter("option1");
         String option2 = request.getParameter("option2");
         String option3 = request.getParameter("option3");
-        RegistrationFormDetails registrationFormDetails=new RegistrationFormDetails(rfdId, lastNameAtBirth, lastName, firstName, dadFirstName, momFirstName, pid, birthdate, placeOfBirthCountry, placeOfBirthCounty, placeOfBirthCity, civilStatus, specialSocialSituation, citizenship, ethnicity, homeAddressCountry, homeAddressCounty, homeAddressCity, homeAddressStrNrFlAp, idCardSeries, idCardNumber, idCardReleasedBy, idCardReleaseDate, idCardExpiryDate, contactPhoneNumber, contactParentPhoneNumber, contactEmail, disability, preuniversitarStudiesInstitution, preuniversitarStudiesCountry, preuniversitarStudiesCounty, preuniversitarStudiesCity, preuniversitarStudiesDomain, preuniversitarStudiesLength, preuniversitarStudiesGraduationYear, preuniversitarStudiesType, bacDiplomaSeries, bacDiplomaNumber, bacDiplomaReleasedBy, bacDiplomaReleaseDateYear, remarks, option1, option2, option3);
+        RegistrationFormDetails registrationFormDetails = new RegistrationFormDetails(rfdId, lastNameAtBirth, lastName, firstName, dadFirstName, momFirstName, pid, birthdate, placeOfBirthCountry, placeOfBirthCounty, placeOfBirthCity, civilStatus, specialSocialSituation, citizenship, ethnicity, homeAddressCountry, homeAddressCounty, homeAddressCity, homeAddressStrNrFlAp, idCardSeries, idCardNumber, idCardReleasedBy, idCardReleaseDate, idCardExpiryDate,contactPhoneNumber, contactParentPhoneNumber, contactEmail, disability, preuniversitarStudiesInstitution, preuniversitarStudiesCountry, preuniversitarStudiesCounty, preuniversitarStudiesCity, preuniversitarStudiesDomain, preuniversitarStudiesLength, preuniversitarStudiesGraduationYear, preuniversitarStudiesType, bacDiplomaSeries, bacDiplomaNumber, bacDiplomaReleasedBy, bacDiplomaReleaseDateYear, remarks, option1, option2, option3);
         registrationFormBean.updateRegistrationBean(registrationFormDetails);
-        response.sendRedirect(request.getContextPath()+"/InvalidPortfolios");
+        response.sendRedirect(request.getContextPath() + "/InvalidPortfolios");
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";

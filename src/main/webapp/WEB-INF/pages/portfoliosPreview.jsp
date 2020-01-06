@@ -23,7 +23,7 @@
         </div>   
 
         <c:forEach var="rf" items="${registrationForms}" varStatus="status">
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-sm-2 mt-2">
                     ${rf.lastName}
                 </div>
@@ -38,15 +38,15 @@
                     ${rf.idCardNumber}
                 </div>
                 <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Update?id=${rf.id}" role="button">Vezi dosar complet</a> 
+                    <a class="btn btn-secondary btn-xs" href="${pageContext.request.contextPath}/Portfolios/Update?id=${rf.id}" role="button">Vezi dosar complet</a> 
                 </c:if>
                 <c:if test="${pageContext.request.isUserInRole('SecretaryRole')}">
-                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/Portfolios/Validate?id=${rf.id}&ascunde=${ascundeValidate}" role="button">Vezi dosar complet</a> 
+                    <a class="btn btn-secondary btn-xs" href="${pageContext.request.contextPath}/Portfolios/Validate?id=${rf.id}&ascunde=${ascundeValidate}" role="button">Vezi dosar complet</a> 
                 </c:if>
-
+            </div>
             </c:forEach>
 
-        </div>
-
+        
+    </div>
 
     </t:pageTemplate>

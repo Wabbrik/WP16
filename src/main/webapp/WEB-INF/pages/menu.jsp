@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="${pageContext.request.contextPath}/index.jsp">
-        <img src="images/logo_2x.png" alt="Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu" data-no-retina="" style="height: 90px" class="mb-2">
+        <img src="${pageContext.request.contextPath}/images/logo_2x.png" alt="Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu" data-no-retina="" style="height: 90px" class="mb-2">
     </a>
 
     <div class="collapse navbar-collapse pl-5" id="navbarSupportedContent">
@@ -27,10 +27,10 @@
                 </li>
             </c:if>
             <c:if test="${pageContext.request.isUserInRole('SecretaryRole')}">
-                <li class="nav-item ${pageContext.request.requestURI eq 'InvalidPortfolios' ? ' active' : ''}">
+                <li class="nav-item active">
                     <a class="nav-link" href="${pageContext.request.contextPath}/InvalidPortfolios">Dosare</a>
                 </li>
-                <li class="nav-item ${pageContext.request.requestURI eq 'ValidPortfolios' ? ' active' : ''}">
+                <li class="nav-item active">
                     <a class="nav-link" href="${pageContext.request.contextPath}/ValidPortfolios">Dosare acceptate</a>
                 </li>
             </c:if>

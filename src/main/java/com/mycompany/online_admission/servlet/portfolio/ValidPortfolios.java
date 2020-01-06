@@ -13,31 +13,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "ValidPortfolios", urlPatterns = {"/ValidPortfolios"})
 public class ValidPortfolios extends HttpServlet {
 
-    @Inject RegistrationFormBean registrationFormBean;
-    @Inject PortfolioBean portfolioBean;
+    @Inject
+    RegistrationFormBean registrationFormBean;
+    @Inject
+    PortfolioBean portfolioBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Set<Integer>validPortfolioIds=portfolioBean.getValidPortfolioIdsList();
-        List<RegistrationFormDetails>rfd=registrationFormBean.getAllRegistrationFormsThatBelongToAValidPortfolioByValidPortfolioIdsList(validPortfolioIds);
+        Set<Integer> validPortfolioIds = portfolioBean.getValidPortfolioIdsList();
+        List<RegistrationFormDetails> rfd = registrationFormBean.getAllRegistrationFormsThatBelongToAValidPortfolioByValidPortfolioIdsList(validPortfolioIds);
         request.setAttribute("registrationForms", rfd);
         request.setAttribute("ascundeValidate", "da");
         request.getRequestDispatcher("/WEB-INF/pages/portfoliosPreview.jsp").forward(request, response);
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";
