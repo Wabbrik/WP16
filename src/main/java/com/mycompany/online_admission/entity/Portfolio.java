@@ -27,6 +27,8 @@ public class Portfolio implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String validity;
+    private String hasRegistrationForm;
+    private String hasPhotos;
     @OneToOne
     @JoinColumn(name = "USER_KEY")
     private User user;
@@ -39,6 +41,22 @@ public class Portfolio implements Serializable {
 
     public String getValidity() {
         return validity;
+    }
+
+    public String getHasRegistrationForm() {
+        return hasRegistrationForm;
+    }
+
+    public void setHasRegistrationForm(String hasRegistrationForm) {
+        this.hasRegistrationForm = hasRegistrationForm;
+    }
+
+    public String getHasPhotos() {
+        return hasPhotos;
+    }
+
+    public void setHasPhotos(String hasPhotos) {
+        this.hasPhotos = hasPhotos;
     }
 
     public void setValidity(String validity) {

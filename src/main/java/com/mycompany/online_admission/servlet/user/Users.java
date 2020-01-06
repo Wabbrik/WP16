@@ -3,6 +3,7 @@ package com.mycompany.online_admission.servlet.user;
 import com.mycompany.online_admission.common.UserDetails;
 import com.mycompany.online_admission.ejb.UserBean;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -33,6 +34,16 @@ public class Users extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String[] userIdsAsString=request.getParameterValues("user_ids");
+        if(userIdsAsString!=null){
+            List<Integer>userIds=new ArrayList<>();
+            for(String userIdAsString:userIdsAsString){
+                userIds.add(Integer.parseInt(userIdAsString));
+            }
+            userBean.deleteUsersByIds(userIds);
+            
+        }
+        response.sendRedirect(request.getContextPath()+"/Users");
     }
 
     @Override

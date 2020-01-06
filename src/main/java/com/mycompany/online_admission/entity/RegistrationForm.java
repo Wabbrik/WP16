@@ -29,9 +29,7 @@ public class RegistrationForm implements Serializable {
     private String dadFirstName;
     private String momFirstName;
     private String pid;
-    private String birthdateYear;
-    private String birthdateMonth;
-    private String birthdateDay;
+    private String birthdate;
     private String placeOfBirthCountry;
     private String placeOfBirthCounty;
     private String placeOfBirthCity;
@@ -48,7 +46,6 @@ public class RegistrationForm implements Serializable {
     private String idCardReleasedBy;
     private String idCardReleaseDate;
     private String idCardExpiryDate;
-    private String address;
     private String contactPhoneNumber;
     private String contactParentPhoneNumber;
     private String contactEmail;
@@ -155,29 +152,15 @@ public class RegistrationForm implements Serializable {
         this.pid = pid;
     }
 
-    public String getBirthdateYear() {
-        return birthdateYear;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthdateYear(String birthdateYear) {
-        this.birthdateYear = birthdateYear;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getBirthdateMonth() {
-        return birthdateMonth;
-    }
-
-    public void setBirthdateMonth(String birthdateMonth) {
-        this.birthdateMonth = birthdateMonth;
-    }
-
-    public String getBirthdateDay() {
-        return birthdateDay;
-    }
-
-    public void setBirthdateDay(String birthdateDay) {
-        this.birthdateDay = birthdateDay;
-    }
+   
 
     public String getPlaceOfBirthCountry() {
         return placeOfBirthCountry;
@@ -307,13 +290,7 @@ public class RegistrationForm implements Serializable {
         this.idCardExpiryDate = idCardExpiryDate;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    
 
     public String getContactPhoneNumber() {
         return contactPhoneNumber;
@@ -458,6 +435,8 @@ public class RegistrationForm implements Serializable {
     public void setPortfolio(Portfolio portfolio) {
         this.portfolio = portfolio;
     }
+
+    
     
     
 

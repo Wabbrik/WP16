@@ -44,7 +44,7 @@ public class AddUser extends HttpServlet {
             }
         }
         if (create == true) {
-            userBean.createUser(username, email, passwordSha256, position);
+            userBean.createUser(username, email, passwordSha256, position,"NU");
             request.setAttribute("message1", "L-ai inregistrat cu succes pe ");
             request.setAttribute("message2", username);
         } else {

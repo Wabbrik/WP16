@@ -42,7 +42,7 @@ public class Signup extends HttpServlet {
             }
         }
         if(create==true){
-            userBean.createUser(username, email, passwordSha256, position);
+            userBean.createUser(username, email, passwordSha256, position,"NU");
             request.setAttribute("message", "Te-ai inregistrat cu succes! In 5 secunde vei fi redirectionat spre pagina de Login...");
             request.setAttribute("message2", "login");
         }else{

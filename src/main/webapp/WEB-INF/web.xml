@@ -9,6 +9,16 @@
         </session-timeout>
     </session-config>
     
+    <security-role>
+        <role-name>ClientRole</role-name>
+    </security-role>
+    <security-role>
+        <role-name>AdminRole</role-name>
+    </security-role>
+    <security-role>
+        <role-name>SecretaryRole</role-name>
+    </security-role>
+
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>jdbcRealm</realm-name>

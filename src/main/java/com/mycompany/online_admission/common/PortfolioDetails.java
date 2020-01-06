@@ -16,8 +16,35 @@ import java.util.Collection;
  */
 public class PortfolioDetails implements Serializable{
     private Integer id;
-    private User user;
-    private Collection<Photo>photos;
+    private String validity;
+    private String hasRegistrationForm;
+    private String hasPhotos;
+
+    public String getHasRegistrationForm() {
+        return hasRegistrationForm;
+    }
+
+    public void setHasRegistrationForm(String hasRegistrationForm) {
+        this.hasRegistrationForm = hasRegistrationForm;
+    }
+
+    public String getHasPhotos() {
+        return hasPhotos;
+    }
+
+    public void setHasPhotos(String hasPhotos) {
+        this.hasPhotos = hasPhotos;
+    }
+    
+
+    public String getValidity() {
+        return validity;
+    }
+
+    public void setValidity(String validity) {
+        this.validity = validity;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -27,27 +54,9 @@ public class PortfolioDetails implements Serializable{
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
+    
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Collection<Photo> getPhotos() {
-        return photos;
-    }
-
-    public void setPhotos(Collection<Photo> photos) {
-        this.photos = photos;
-    }
-
-    public PortfolioDetails(Integer id, User user, Collection<Photo> photos) {
-        this.id = id;
-        this.user = user;
-        this.photos = photos;
-    }
+ 
     
     
     

@@ -1,51 +1,37 @@
 package com.mycompany.online_admission.servlet.portfolio;
 
-
-import com.mycompany.online_admission.ejb.PortfolioBean;
-import com.mycompany.online_admission.ejb.UserBean;
-import com.mycompany.online_admission.entity.Portfolio;
+import com.mycompany.online_admission.common.RegistrationFormDetails;
+import com.mycompany.online_admission.ejb.RegistrationFormBean;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"ClientRole"}))
-@WebServlet(name = "AddRegistrationFormToPortfolio", urlPatterns = {"/AddRegistrationFormToPortfolio"})
-public class AddRegistrationFormToPortfolio extends HttpServlet {
-
-    @Inject UserBean userBean;
-    @Inject PortfolioBean portfolioBean;
+@WebServlet(name = "EditPortfolio", urlPatterns = {"/Portfolios/Update"})
+public class EditPortfolio extends HttpServlet {
+@Inject RegistrationFormBean registrationFormBean;
+    
+   
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String currentUser = userBean.getContext().getCallerPrincipal().getName();
-        Integer userId = userBean.getIdByUsername(currentUser);
-        boolean areDosar=userBean.hasUserPortfolio(userId);
-        if(!areDosar){
-            portfolioBean.createPortfolio("NEVALID", userId);
-        }
-        Integer portfolioId=portfolioBean.getPortfolioByUserId(userId).getId();
-        if(portfolioBean.hasUserAlreadySubmittedRegistrationForm(userId)){
-            request.setAttribute("message","Ai completat deja formularul necesar inscrierii!");
-            request.getRequestDispatcher("/WEB-INF/pages/aiCompletatDeja.jsp").forward(request, response);
-        }
-        request.getRequestDispatcher("/WEB-INF/pages/matriculation.jsp").forward(request, response);
+        Integer rfdId = Integer.parseInt(request.getParameter("id"));
+        RegistrationFormDetails rfd = registrationFormBean.getRegistrationFormByRegistrationFormId(rfdId);
+        request.setAttribute("rf", rfd);
+        request.getRequestDispatcher("/WEB-INF/pages/portfoliosFullUpdate.jsp").forward(request, response);
     }
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String currentUser = userBean.getContext().getCallerPrincipal().getName();
-        Integer userId = userBean.getIdByUsername(currentUser);
-        Integer portfolioId=portfolioBean.getPortfolioByUserId(userId).getId();
-        
+        Integer rfdId = Integer.parseInt(request.getParameter("id"));
         String lastNameAtBirth = request.getParameter("lastNameAtBirth");
         String lastName = request.getParameter("lastName");
         String firstName = request.getParameter("firstName");
@@ -90,14 +76,12 @@ public class AddRegistrationFormToPortfolio extends HttpServlet {
         String option1 = request.getParameter("option1");
         String option2 = request.getParameter("option2");
         String option3 = request.getParameter("option3");
-        
-        portfolioBean.addRegistrationFormToPortfolio(portfolioId, lastNameAtBirth, lastName, firstName, dadFirstName, momFirstName, pid, birthdate, placeOfBirthCountry, placeOfBirthCounty, placeOfBirthCity, civilStatus, specialSocialSituation, citizenship, ethnicity, homeAddressCountry, homeAddressCounty, homeAddressCity, homeAddressStrNrFlAp, idCardSeries, idCardNumber, idCardReleasedBy, idCardReleaseDate, idCardExpiryDate, contactPhoneNumber, contactParentPhoneNumber, contactEmail, disability, preuniversitarStudiesInstitution, preuniversitarStudiesCountry, preuniversitarStudiesCounty, preuniversitarStudiesCity, preuniversitarStudiesDomain, preuniversitarStudiesLength, preuniversitarStudiesGraduationYear, preuniversitarStudiesType, bacDiplomaSeries, bacDiplomaNumber, bacDiplomaReleasedBy, bacDiplomaReleaseDateYear, remarks, option1, option2, option3);
-        
-        request.getRequestDispatcher("/WEB-INF/pages/addDocuments.jsp").forward(request, response);
-        
-       
+        RegistrationFormDetails registrationFormDetails=new RegistrationFormDetails(rfdId, lastNameAtBirth, lastName, firstName, dadFirstName, momFirstName, pid, birthdate, placeOfBirthCountry, placeOfBirthCounty, placeOfBirthCity, civilStatus, specialSocialSituation, citizenship, ethnicity, homeAddressCountry, homeAddressCounty, homeAddressCity, homeAddressStrNrFlAp, idCardSeries, idCardNumber, idCardReleasedBy, idCardReleaseDate, idCardExpiryDate, contactPhoneNumber, contactParentPhoneNumber, contactEmail, disability, preuniversitarStudiesInstitution, preuniversitarStudiesCountry, preuniversitarStudiesCounty, preuniversitarStudiesCity, preuniversitarStudiesDomain, preuniversitarStudiesLength, preuniversitarStudiesGraduationYear, preuniversitarStudiesType, bacDiplomaSeries, bacDiplomaNumber, bacDiplomaReleasedBy, bacDiplomaReleaseDateYear, remarks, option1, option2, option3);
+        registrationFormBean.updateRegistrationBean(registrationFormDetails);
+        response.sendRedirect(request.getContextPath()+"/InvalidPortfolios");
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";

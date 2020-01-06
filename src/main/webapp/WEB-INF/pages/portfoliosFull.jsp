@@ -1,65 +1,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:pageTemplate pageTitle="Matriculation">
+<t:pageTemplate pageTitle="Portfolios">
 
-    <style>
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            /* display: none; <- Crashes Chrome on hover */
-            -webkit-appearance: none;
-            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-        }
+    <h1>Validare Dosar</h1>
 
-        input[type=number] {
-            -moz-appearance:textfield; /* Firefox */
-        }
-    </style>
-
-    <div class="row mt-3">
-        <div class="col-md text-left">
-            UNIVERSITATEA „LUCIAN BLAGA” DIN SIBIU
-        </div>
-        <div class="col-md text-right">
-            STUDII UNIVERSITARE DE <strong>LICENŢĂ – ID / FR</strong>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md text-left">
-            <strong>FACULTATEA DE INGINERIE</strong>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md text-center">
-            <strong>FIŞA DE ÎNSCRIERE</strong>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md text-center">
-            concursul de admitere sesiunea IULIE / SEPTEMBRIE 2020
-        </div>
-    </div>
-
-
-
-    <form class="form-matriculation" method="POST" action="${pageContext.request.contextPath}/AddRegistrationFormToPortfolio">
+    <form class="form-matriculation" method="POST" action="${pageContext.request.contextPath}/Portfolios/Validate">
         <h5>Datele personale:</h5>
         <hr>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputLastNameAtBirth" class="mt-2">Numele de familie la naştere:</label>
-
+                <label for="inputLastNameAtBirth" class="mt-2">Numele de familie la nastere:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="lastNameAtBirth" name="lastNameAtBirth" class="form-control" required autofocus>
+                ${rf.lastNameAtBirth}
+                <input type="hidden" name="rfId" value="${rf.id}">
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputLastName" class="mt-2" title="Se completează doar dacă este diferit de numele de familie la naștere">Numele de familie actual:</label>
+                <label for="inputLastName" class="mt-2" title="Se completeaza doar daca este diferit de numele de familie la na?tere">Numele de familie actual:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="lastName" name="lastName" class="form-control" required autofocus>
+                ${rf.lastName}
             </div>
         </div>
         <div class="row mb-2">
@@ -67,7 +31,7 @@
                 <label for="inputFirstName" class="mt-2">Prenume:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="firstName" name="firstName" class="form-control" required autofocus>
+                ${rf.firstName}
             </div>
         </div>
         <div class="row mb-2">
@@ -75,7 +39,7 @@
                 <label for="inputdadFirstName" class="mt-2">Prenume tata:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="dadFirstName" name="dadFirstName" class="form-control" required autofocus>
+                ${rf.dadFirstName}
             </div>
         </div>
         <div class="row mb-2">
@@ -83,7 +47,7 @@
                 <label for="inputmomFirstName" class="mt-2">Prenume mama:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="momFirstName" name="momFirstName" class="form-control" required autofocus>
+                ${rf.momFirstName}
             </div>
         </div>
         <div class="row mb-2">
@@ -91,7 +55,7 @@
                 <label for="inputPid" class="mt-2">CNP:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="pid" name="pid" class="form-control" required autofocus>
+                ${rf.pid}
             </div>
         </div>
         <div class="row mb-2">
@@ -99,7 +63,7 @@
                 <label for="inputBirthday" class="mt-2">Data nasterii:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="date" id="birthday" name="birthday" class="form-control" required autofocus>
+                ${rf.birthdate}
             </div>
         </div>
         <div class="row mb-2">
@@ -107,24 +71,15 @@
                 <label for="inputCivilStatus" class="mt-2">Starea civila:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <select class="form-control" id="civilStatus" name="civilStatus">
-                    <option value="casatorit">Casatorit</option>    
-                    <option value="necasatorit">Necasatorit</option>
-                </select>
+                ${rf.civilStatus}
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputSpecialSocialSituation" class="mt-2" title="Se completează numai de persoanele aflate în această situație, pe bază de documente doveditoare.">Situație socială specială:</label>
+                <label for="inputSpecialSocialSituation" class="mt-2" title="Se completeaza numai de persoanele aflate în aceasta situa?ie, pe baza de documente doveditoare.">Situa?ie sociala speciala:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <select class="form-control" id="specialSocialSituation" name="specialSocialSituation">
-                    <option value="none">Niciuna</option>
-                    <option value="orfan1">Orfan de un părinte</option>    
-                    <option value="orfan2">Orfan de ambii părinți</option>
-                    <option value="provenit1">Provenit din case de copii</option>
-                    <option value="preovenit2">Provenit din familie monoparentală</option>
-                </select>
+                ${rf.specialSocialSituation}
             </div>
         </div>
         <div class="row mb-2">
@@ -132,7 +87,7 @@
                 <label for="inputCitizenship" class="mt-2">Cetatenia:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="citizenship" name="citizenship" class="form-control" required autofocus>
+                ${rf.citizenship}
             </div>
         </div>
         <div class="row mb-2">
@@ -140,28 +95,25 @@
                 <label for="inputEthnicity" class="mt-2">Etnia:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="ethnicity" name="ethnicity" class="form-control" required autofocus>
+                ${rf.ethnicity}
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-6">
-                <label for="inputDisability" class="mt-2" title="Se completează numai de către persoanele aflate în această situaţie, pe bază de documente doveditoare:"/>Candidat care care se încadrează în categoria persoanelor cu dizabilităţi:</label>
+                <label for="inputDisability" class="mt-2" title="Se completeaza numai de catre persoanele aflate în aceasta situatie, pe baza de documente doveditoare:"/>Candidat care care se încadreaza în categoria persoanelor cu dizabilitati:</label>
             </div>
             <div class="col-md-2 mr-3 text-left">
-                <select class="form-control" id="disability" name="disability">
-                    <option value="da">Da</option>
-                    <option value="nu">Nu</option>
-                </select>
+                ${rf.disability}
             </div>
         </div>
-        <h5 class="mt-5">Locul naşterii:</h5>     
+        <h5 class="mt-5">Locul nasterii:</h5>     
         <hr>
         <div class="row mb-2">
             <div class="col-md-3">
                 <label for="inputCountry" class="mt-2">Tara:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="placeOfBirthCountry" name="placeOfBirthCountry" class="form-control" required autofocus>
+                ${rf.placeOfBirthCountry}
             </div>
         </div>
         <div class="row mb-2">
@@ -169,7 +121,7 @@
                 <label for="inputCounty" class="mt-2">Judetul:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="placeOfBirthCounty" name="placeOfBirthCounty" class="form-control" required autofocus>
+                ${rf.placeOfBirthCounty}
             </div>
         </div>
         <div class="row mb-2">
@@ -177,7 +129,7 @@
                 <label for="inputCity" class="mt-2">Localitatea:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="placeOfBirthCity" name="placeOfBirthCity" class="form-control" required autofocus>
+                ${rf.placeOfBirthCity}
             </div>
         </div>
         <h5 class="mt-5">Domiciliul stabilit:</h5>     
@@ -187,7 +139,7 @@
                 <label for="inputCountry" class="mt-2">Tara:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="homeAddressCountry" name="homeAddressCountry" class="form-control" required autofocus>
+                ${rf.homeAddressCountry}
             </div>
         </div>
         <div class="row mb-2">
@@ -195,7 +147,7 @@
                 <label for="inputCounty" class="mt-2">Judetul:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="homeAddressCounty" name="homeAddressCounty" class="form-control" required autofocus>
+                ${rf.homeAddressCounty}
             </div>
         </div>
         <div class="row mb-2">
@@ -203,7 +155,7 @@
                 <label for="inputCity" class="mt-2">Localitatea:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="homeAddressCity" name="homeAddressCity" class="form-control" required autofocus>
+                ${rf.homeAddressCounty}
             </div>
         </div>
         <div class="row mb-2">
@@ -211,7 +163,7 @@
                 <label for="inputCity" class="mt-2">Adresa:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="homeAddressStrNrFlAp" name="homeAddressStrNrFlAp" placeholder="Strada, nr. bloc, scară, etaj, apartament" class="form-control" required autofocus>
+                ${rf.homeAddressStrNrFlAp}
             </div>
         </div>
 
@@ -222,7 +174,7 @@
                 <label for="inputPhoneNumber" class="mt-2">Telefon:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="contactPhoneNumber" name="contactPhoneNumber" class="form-control" required autofocus>
+                ${rf.contactPhoneNumber}
             </div>
         </div>
         <div class="row mb-2">
@@ -230,7 +182,7 @@
                 <label for="inputParentPhoneNumber" class="mt-2">Telefonul mamei/tatei:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="contactParentPhoneNumber" name="contactParentPhoneNumber" class="form-control" required autofocus>
+                ${rf.contactParentPhoneNumber}
             </div>
         </div>
         <div class="row mb-2">
@@ -238,17 +190,17 @@
                 <label for="inputMail" class="mt-2">Adresa e-mail:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="email" id="contactEmail" name="contactEmail" class="form-control" required autofocus>
+                ${rf.contactEmail}
             </div>
         </div>
-        <h5 class="mt-5">Act de identitate C.I. / pașaport:</h5>     
+        <h5 class="mt-5">Act de identitate C.I. / pa?aport:</h5>     
         <hr>
         <div class="row mb-2">
             <div class="col-md-3">
                 <label for="inputCardSeries" class="mt-2">Seria:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="idCardSeries" name="idCardSeries" class="form-control" required autofocus>
+                ${rf.idCardSeries}
             </div>
         </div>
         <div class="row mb-2">
@@ -256,7 +208,7 @@
                 <label for="inputCardNumber" class="mt-2">Numar:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="idCardNumber" name="idCardNumber" class="form-control" required autofocus>
+                ${rf.idCardNumber}
             </div>
         </div>
         <div class="row mb-2">
@@ -264,7 +216,7 @@
                 <label for="inputCardReleasedBy" class="mt-2">Eliberat de:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="idCardReleasedBy" name="idCardReleasedBy" class="form-control" required autofocus>
+                ${rf.idCardReleasedBy}
             </div>
         </div>
         <div class="row mb-2">
@@ -272,7 +224,7 @@
                 <label for="inputCardReleaseDate" class="mt-2">Eliberat la data:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="date" id="idCardReleaseDate" name="idCardReleaseDate" class="form-control" required autofocus>
+                ${rf.idCardReleaseDate}
             </div>
         </div>
         <div class="row mb-2">
@@ -280,33 +232,33 @@
                 <label for="inputCardExpiryDate" class="mt-2">Expira la data:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="date" id="idCardExpiryDate" name="idCardExpiryDate" class="form-control" required autofocus>
+                ${rf.idCardExpiryDate}
             </div>
         </div>
         <h5 class="mt-5">Studiile preuniversitare absolvite, nivel liceu:</h5>     
         <hr>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputCountry" class="mt-2">Instituţia unde a absolvit:</label>
+                <label for="inputCountry" class="mt-2">Institutia unde a absolvit:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="preuniversitarStudiesInstitution" name="preuniversitarStudiesInstitution" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesInstitution}
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputPreuniversitarStudiesCountry" class="mt-2">Țara:</label>
+                <label for="inputPreuniversitarStudiesCountry" class="mt-2">?ara:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="preuniversitarStudiesCountry" name="preuniversitarStudiesCountry" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesCountry}
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputPreuniversitarStudiesCounty" class="mt-2">Județul:</label>
+                <label for="inputPreuniversitarStudiesCounty" class="mt-2">Jude?ul:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="preuniversitarStudiesCounty" name="preuniversitarStudiesCounty" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesCounty}
             </div>
         </div>
         <div class="row mb-2">
@@ -314,7 +266,7 @@
                 <label for="inputPreuniversitarStudiesCity" class="mt-2">Localitatea:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="preuniversitarStudiesCity" name="preuniversitarStudiesCity" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesCity}
             </div>
         </div>
         <div class="row mb-2">
@@ -322,7 +274,7 @@
                 <label for="inputPreuniversitarStudiesDomain" class="mt-2">Profilul/Domeniul:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="preuniversitarStudiesDomain" name="preuniversitarStudiesDomain" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesDomain}
             </div>
         </div>
         <div class="row mb-2">
@@ -330,7 +282,7 @@
                 <label for="inputPreuniversitarStudiesLength" class="mt-2">Durata studiilor:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="preuniversitarStudiesLength" name="preuniversitarStudiesLength" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesLength}
             </div>
         </div>
         <div class="row mb-2">
@@ -338,29 +290,25 @@
                 <label for="inputPreuniversitarStudiesGraduationYear" class="mt-2">Anul absolvirii:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="preuniversitarStudiesGraduationYear" name="preuniversitarStudiesGraduationYear" class="form-control" required autofocus>
+                ${rf.preuniversitarStudiesGraduationYear}
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-md-3">
-                <label for="inputPreuniversitarStudiesType" class="mt-2">Forma de învățământ:</label>
+                <label for="inputPreuniversitarStudiesType" class="mt-2">Forma de înva?amânt:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <select class="form-control" id="preuniversitarStudiesType" name="preuniversitarStudiesType">
-                    <option value="zi">Zi</option>
-                    <option value="seral">Seral</option>
-                    <option value="distanta">Invatamant la distanta</option>
-                </select>
+                ${rf.preuniversitarStudiesType}
             </div>
         </div>
-        <h5 class="mt-5">Datele de identificare ale diplomei de bacalaureat/adeverinței de absolvire:</h5>     
+        <h5 class="mt-5">Datele de identificare ale diplomei de bacalaureat/adeverin?ei de absolvire:</h5>     
         <hr>
         <div class="row mb-2">
             <div class="col-md-3">
                 <label for="inputBacDiplomaSeries" class="mt-2">Seria:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="bacDiplomaSeries" name="bacDiplomaSeries" class="form-control" required autofocus>
+                ${rf.bacDiplomaSeries}
             </div>
         </div>
         <div class="row mb-2">
@@ -368,7 +316,7 @@
                 <label for="inputBacDiplomaNumber" class="mt-2">Numarul:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="bacDiplomaNumber" name="bacDiplomaNumber" class="form-control" required autofocus>
+                ${rf.bacDiplomaNumber}
             </div>
         </div>
         <div class="row mb-2">
@@ -376,7 +324,7 @@
                 <label for="inputBacDiplomaReleasedBy" class="mt-2">Emisa de:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="bacDiplomaReleasedBy" name="bacDiplomaReleasedBy" class="form-control" required autofocus>
+                ${rf.bacDiplomaReleasedBy}
             </div>
         </div>
         <div class="row mb-2">
@@ -384,27 +332,26 @@
                 <label for="inputBacDiplomaReleaseDateYear" class="mt-2">Anul emiterii:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="number" id="bacDiplomaReleaseDateYear" name="bacDiplomaReleaseDateYear" class="form-control" required autofocus>
+                ${rf.bacDiplomaReleaseDateYear}
             </div>
         </div>
         <hr>
-        
+
         <div class="row mb-2">
             <div class="col-md">
-                <label for="inputRemarks" class="mt-2" title="Vizarea/Recunoaşterea diplomei prezentate DGRIE - acorduri bilaterale/DGIS și CNRED/ Nr./seria act
-de recunoaştere/echivalare (eliberat de DGRIE/ DGIS și CNRED)">Alte observaţii (pentru cazurile în care candidatul a absolvit studii anterioare în străinătate):</label>
-                <textarea name="remarks" id="remarks" rows="4" cols="150" placeholder="Vizarea/Recunoaşterea diplomei prezentate DGRIE - acorduri bilaterale/DGIS și CNRED/ Nr./seria act
-de recunoaştere/echivalare (eliberat de DGRIE/ DGIS și CNRED)" ></textarea>
+                <label for="inputRemarks" class="mt-2" title="Vizarea/Recunoasterea diplomei prezentate DGRIE - acorduri bilaterale/DGIS ?i CNRED/ Nr./seria act
+                       de recunoastere/echivalare (eliberat de DGRIE/ DGIS ?i CNRED)">Alte observatii (pentru cazurile în care candidatul a absolvit studii anterioare în strainatate):</label>
+                ${rf.remarks}
             </div>
         </div>
-        
-        <h5>Programele de studii universitare de licență pentru care optez (în ordinea preferințelor):</h5>
+
+        <h5>Programele de studii universitare de licen?a pentru care optez (în ordinea preferin?elor):</h5>
         <div class="row mb-2">
             <div class="col-md-3">
                 <label for="inputOption1" class="mt-2">Optiunea 1:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="option1" name="option1" class="form-control" required autofocus>
+                ${rf.option1}
             </div>
         </div>
         <div class="row mb-2">
@@ -412,7 +359,7 @@ de recunoaştere/echivalare (eliberat de DGRIE/ DGIS și CNRED)" ></textarea>
                 <label for="inputOption2" class="mt-2">Optiunea 2:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="option2" name="option2" class="form-control" required autofocus>
+                ${rf.option2}
             </div>
         </div>
         <div class="row mb-2">
@@ -420,13 +367,93 @@ de recunoaştere/echivalare (eliberat de DGRIE/ DGIS și CNRED)" ></textarea>
                 <label for="inputOption3" class="mt-2">Optiunea 3:</label>
             </div>
             <div class="col-md mr-3 text-left">
-                <input type="text" id="option3" name="option3" class="form-control" required autofocus>
+                ${rf.option3}
             </div>
         </div>
-        
-        
-        <button class="btn btn-lg btn-primary btn-block mt-5 mb-5" type="submit">Inscrie-te</button>
+            
+            <h5>Poze:</h5>
+            <hr>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputPozaBac" class="mt-2">Diploma de Bacalaureat:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaBac}" width="48"/>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputPozaCertificatNastere" class="mt-2">Certificat de nastere:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaCertificatNastere}" width="48"/>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputAdeverintaMedicala" class="mt-2">Adeverinta medicala:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaAdeverintaMedicala}" width="48"/>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputFotografieProfil" class="mt-2">Poza de profil:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaProfil}" width="48"/>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputCarteIdentitate" class="mt-2">Carte de identitate:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaCarteIdentitate}" width="48"/>     
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3">
+                    <label for="inputchitantaPlata" class="mt-2">Chitanta plata:</label>
+                </div>
+                <div class="col-md mr-3 text-left">
+                    <img src="${pageContext.request.contextPath}/Portfolios/Photos?id=${idPozaChitantaPlata}" width="48"/>    
+                </div>
+            </div>
+            
        
 
+                    <c:if test="${ascundeValidate=='nu'}">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Validare</button>
+                    </c:if>
     </form>
+
+    <script>
+        (function () {
+            'use strict'
+
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }, false)
+        }());
+    </script>
+
+
+
+
+
 </t:pageTemplate>
+

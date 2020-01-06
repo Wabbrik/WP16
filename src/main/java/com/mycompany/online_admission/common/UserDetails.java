@@ -18,13 +18,22 @@ public class UserDetails implements Serializable {
     private String username;
     private String email;
     private String position;
+    private String hasPortfolio;
 
-    public UserDetails(Integer id, String username, String email, String position) {
+    public UserDetails(Integer id, String username, String email, String position,String hasPortfolio) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.position = position;
+        this.hasPortfolio=hasPortfolio;
+    }
 
+    public void setHasPortfolio(String hasPortfolio) {
+        this.hasPortfolio = hasPortfolio;
+    }
+
+    public String getHasPortfolio() {
+        return hasPortfolio;
     }
 
     public Integer getId() {

@@ -3,7 +3,7 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="images/logo_2x.png" alt="Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu" data-no-retina="" style="height: 90px" class="mb-2">
+        <img src="${pageContext.request.contextPath}/images/logo_2x.png" alt="Facultatea de Inginerie. Universitatea Lucian Blaga din Sibiu" data-no-retina="" style="height: 90px" class="mb-2">
 
 
         <div class="collapse navbar-collapse pl-5" id="navbarSupportedContent">
@@ -27,8 +27,16 @@
                     </li>
                 </c:if>
                 <c:if test="${pageContext.request.isUserInRole('SecretaryRole')}">
-                    <li class="nav-item ${pageContext.request.requestURI eq 'Portfolios' ? ' active' : ''}">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/Portfolios">Dosare</a>
+                    <li class="nav-item ${pageContext.request.requestURI eq 'InvalidPortfolios' ? ' active' : ''}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/InvalidPortfolios">Dosare</a>
+                    </li>
+                    <li class="nav-item ${pageContext.request.requestURI eq 'ValidPortfolios' ? ' active' : ''}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/ValidPortfolios">Dosare acceptate</a>
+                    </li>
+                </c:if>
+                <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+                    <li class="nav-item ${pageContext.request.requestURI eq 'InvalidPortfolios' ? ' active' : ''}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/InvalidPortfolios">Dosare</a>
                     </li>
                 </c:if>
                 <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
@@ -43,8 +51,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Invatamant</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="#">Plan de invatamant</a>
-                            <a class="dropdown-item" href="#">Structura anului</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/planDeInvatamant.jsp">Plan de invatamant</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/structuraAnului.jsp">Structura anului</a>
                         </div>
                     </li>
                 </c:if>

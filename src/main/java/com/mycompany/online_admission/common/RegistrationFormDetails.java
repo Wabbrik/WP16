@@ -17,9 +17,7 @@ public class RegistrationFormDetails {
     private String dadFirstName;
     private String momFirstName;
     private String pid;
-    private String birthdateYear;
-    private String birthdateMonth;
-    private String birthdateDay;
+    private String birthdate;
     private String placeOfBirthCountry;
     private String placeOfBirthCounty;
     private String placeOfBirthCity;
@@ -36,7 +34,6 @@ public class RegistrationFormDetails {
     private String idCardReleasedBy;
     private String idCardReleaseDate;
     private String idCardExpiryDate;
-    private String address;
     private String contactPhoneNumber;
     private String contactParentPhoneNumber;
     private String contactEmail;
@@ -82,7 +79,7 @@ public class RegistrationFormDetails {
         this.option3 = option3;
     }
 
-    public RegistrationFormDetails(Integer id, String lastNameAtBirth, String lastName, String firstName, String dadFirstName, String momFirstName, String pid, String birthdateYear, String birthdateMonth, String birthdateDay, String placeOfBirthCountry, String placeOfBirthCounty, String placeOfBirthCity, String civilStatus, String specialSocialSituation, String citizenship, String ethnicity, String homeAddressCountry, String homeAddressCounty, String homeAddressCity, String homeAddressStrNrFlAp, String idCardSeries, String idCardNumber, String idCardReleasedBy, String idCardReleaseDate, String idCardExpiryDate, String address, String contactPhoneNumber, String contactParentPhoneNumber, String contactEmail, String disability, String preuniversitarStudiesInstitution, String preuniversitarStudiesCountry, String preuniversitarStudiesCounty, String preuniversitarStudiesCity, String preuniversitarStudiesDomain, String preuniversitarStudiesLength, String preuniversitarStudiesGraduationYear, String preuniversitarStudiesType, String bacDiplomaSeries, String bacDiplomaNumber, String bacDiplomaReleasedBy, String bacDiplomaReleaseDateYear, String remarks, String option1, String option2, String option3) {
+    public RegistrationFormDetails(Integer id, String lastNameAtBirth, String lastName, String firstName, String dadFirstName, String momFirstName, String pid, String birthdate, String placeOfBirthCountry, String placeOfBirthCounty, String placeOfBirthCity, String civilStatus, String specialSocialSituation, String citizenship, String ethnicity, String homeAddressCountry, String homeAddressCounty, String homeAddressCity, String homeAddressStrNrFlAp, String idCardSeries, String idCardNumber, String idCardReleasedBy, String idCardReleaseDate, String idCardExpiryDate, String contactPhoneNumber, String contactParentPhoneNumber, String contactEmail, String disability, String preuniversitarStudiesInstitution, String preuniversitarStudiesCountry, String preuniversitarStudiesCounty, String preuniversitarStudiesCity, String preuniversitarStudiesDomain, String preuniversitarStudiesLength, String preuniversitarStudiesGraduationYear, String preuniversitarStudiesType, String bacDiplomaSeries, String bacDiplomaNumber, String bacDiplomaReleasedBy, String bacDiplomaReleaseDateYear, String remarks, String option1, String option2, String option3) {
         this.id = id;
         this.lastNameAtBirth = lastNameAtBirth;
         this.lastName = lastName;
@@ -90,9 +87,7 @@ public class RegistrationFormDetails {
         this.dadFirstName = dadFirstName;
         this.momFirstName = momFirstName;
         this.pid = pid;
-        this.birthdateYear = birthdateYear;
-        this.birthdateMonth = birthdateMonth;
-        this.birthdateDay = birthdateDay;
+        this.birthdate = birthdate;
         this.placeOfBirthCountry = placeOfBirthCountry;
         this.placeOfBirthCounty = placeOfBirthCounty;
         this.placeOfBirthCity = placeOfBirthCity;
@@ -109,7 +104,6 @@ public class RegistrationFormDetails {
         this.idCardReleasedBy = idCardReleasedBy;
         this.idCardReleaseDate = idCardReleaseDate;
         this.idCardExpiryDate = idCardExpiryDate;
-        this.address = address;
         this.contactPhoneNumber = contactPhoneNumber;
         this.contactParentPhoneNumber = contactParentPhoneNumber;
         this.contactEmail = contactEmail;
@@ -190,30 +184,15 @@ public class RegistrationFormDetails {
         this.pid = pid;
     }
 
-    public String getBirthdateYear() {
-        return birthdateYear;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthdateYear(String birthdateYear) {
-        this.birthdateYear = birthdateYear;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getBirthdateMonth() {
-        return birthdateMonth;
-    }
-
-    public void setBirthdateMonth(String birthdateMonth) {
-        this.birthdateMonth = birthdateMonth;
-    }
-
-    public String getBirthdateDay() {
-        return birthdateDay;
-    }
-
-    public void setBirthdateDay(String birthdateDay) {
-        this.birthdateDay = birthdateDay;
-    }
-
+   
     public String getPlaceOfBirthCountry() {
         return placeOfBirthCountry;
     }
@@ -342,13 +321,7 @@ public class RegistrationFormDetails {
         this.idCardExpiryDate = idCardExpiryDate;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+   
 
     public String getContactPhoneNumber() {
         return contactPhoneNumber;

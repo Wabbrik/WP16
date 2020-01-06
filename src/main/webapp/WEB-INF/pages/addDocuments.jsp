@@ -41,7 +41,7 @@
     </div>
     
     
-    <form method="POST" action="${pageContext.request.contextPath}/AddPhotosToPortfolio">
+    <form method="POST" action="${pageContext.request.contextPath}/AddPhotosToPortfolio" enctype="multipart/form-data">
     <h5>Poze:</h5>
         <hr>
         <div class="row mb-2">
