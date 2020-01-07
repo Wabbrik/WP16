@@ -46,7 +46,9 @@ public class RegistrationFormBean {
     public List<RegistrationFormDetails> getAllRegistrationFormsThatBelongToAnInvalidPortfolioByValidPortfolioIdsList(Set<Integer> validPortfolioIds) {
         LOG.info("GET INVALID PORTFOLIOS");
         if (validPortfolioIds.isEmpty()) {
-            LOG.info("parametruNul");
+            LOG.info("parametruNul"); // Always presume
+            validPortfolioIds.add(-2178);
+            getAllRegistrationFormsThatBelongToAnInvalidPortfolioByValidPortfolioIdsList(validPortfolioIds);// get this
             return null;
         } else {
             LOG.info("getAllRegistrationFormsThatBelongToAnInvalidPortfolio");

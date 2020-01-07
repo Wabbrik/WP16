@@ -23,7 +23,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-
 @Stateless
 public class PortfolioBean {
 
@@ -67,13 +66,13 @@ public class PortfolioBean {
         return null;
 
     }
-    
-    public Set<Integer> getValidPortfolioIdsList(){
+
+    public Set<Integer> getValidPortfolioIdsList() {
         LOG.info("getValidPortfolioIdsList");
-        TypedQuery<Integer>tq=em.createQuery("SELECT p.id from Portfolio p WHERE p.validity= :no",Integer.class).setParameter("no","VALID");
-        List<Integer>validPortfolioIds=tq.getResultList();
-        Set<Integer>ids=new HashSet<>();
-        for(Integer id:validPortfolioIds){
+        TypedQuery<Integer> tq = em.createQuery("SELECT p.id from Portfolio p WHERE p.validity= :isValid", Integer.class).setParameter("isValid", "VALID");
+        List<Integer> validPortfolioIds = tq.getResultList();
+        Set<Integer> ids = new HashSet<>();
+        for (Integer id : validPortfolioIds) {
             ids.add(id);
         }
         return ids;
@@ -94,7 +93,7 @@ public class PortfolioBean {
 
     }
 
-    public void addRegistrationFormToPortfolio(Integer portfolioId, String lastNameAtBirth, String lastName, String firstName, String dadFirstName, String momFirstName, String pid, String birthdate, String placeOfBirthCountry, String placeOfBirthCounty, String placeOfBirthCity, String civilStatus, String specialSocialSituation, String citizenship, String ethnicity, String homeAddressCountry, String homeAddressCounty, String homeAddressCity, String homeAddressStrNrFlAp, String idCardSeries, String idCardNumber, String idCardReleasedBy, String idCardReleaseDate, String idCardExpiryDate,String contactPhoneNumber, String contactParentPhoneNumber, String contactEmail, String disability, String preuniversitarStudiesInstitution, String preuniversitarStudiesCountry, String preuniversitarStudiesCounty, String preuniversitarStudiesCity, String preuniversitarStudiesDomain, String preuniversitarStudiesLength, String preuniversitarStudiesGraduationYear, String preuniversitarStudiesType, String bacDiplomaSeries, String bacDiplomaNumber, String bacDiplomaReleasedBy, String bacDiplomaReleaseDateYear, String remarks, String option1, String option2, String option3) {
+    public void addRegistrationFormToPortfolio(Integer portfolioId, String lastNameAtBirth, String lastName, String firstName, String dadFirstName, String momFirstName, String pid, String birthdate, String placeOfBirthCountry, String placeOfBirthCounty, String placeOfBirthCity, String civilStatus, String specialSocialSituation, String citizenship, String ethnicity, String homeAddressCountry, String homeAddressCounty, String homeAddressCity, String homeAddressStrNrFlAp, String idCardSeries, String idCardNumber, String idCardReleasedBy, String idCardReleaseDate, String idCardExpiryDate, String contactPhoneNumber, String contactParentPhoneNumber, String contactEmail, String disability, String preuniversitarStudiesInstitution, String preuniversitarStudiesCountry, String preuniversitarStudiesCounty, String preuniversitarStudiesCity, String preuniversitarStudiesDomain, String preuniversitarStudiesLength, String preuniversitarStudiesGraduationYear, String preuniversitarStudiesType, String bacDiplomaSeries, String bacDiplomaNumber, String bacDiplomaReleasedBy, String bacDiplomaReleaseDateYear, String remarks, String option1, String option2, String option3) {
         LOG.info("addRegistrationFormToPortfolio");
         RegistrationForm rf = new RegistrationForm();
         //rf.setId(portfolioId);
@@ -150,8 +149,8 @@ public class PortfolioBean {
 
     public boolean hasUserAlreadySubmittedRegistrationForm(Integer userId) {
         LOG.info("hasUserAlreadySubmittedRegistrationForm");
-        PortfolioDetails portfolio=getPortfolioByUserId(userId);
-        if(portfolio.getHasRegistrationForm().equals("NO")){
+        PortfolioDetails portfolio = getPortfolioByUserId(userId);
+        if (portfolio.getHasRegistrationForm().equals("NO")) {
             return false;
         }
         return true;
@@ -159,25 +158,26 @@ public class PortfolioBean {
 
     public boolean hasUserAlreadySubmittedPhotos(Integer userId) {
         LOG.info("hasUserAlreadySubmittedPhotos");
-        PortfolioDetails portfolio=getPortfolioByUserId(userId);
-        if(portfolio.getHasPhotos().equals("NO")){
+        PortfolioDetails portfolio = getPortfolioByUserId(userId);
+        if (portfolio.getHasPhotos().equals("NO")) {
             return false;
         }
         return true;
     }
-    
-    public void createPortfolio(String validity,Integer userId){
+
+    public void createPortfolio(String validity, Integer userId) {
         LOG.info("createPortfolio");
-        Portfolio portfolio=new Portfolio();
+        Portfolio portfolio = new Portfolio();
         portfolio.setValidity(validity);
         portfolio.setHasRegistrationForm("NO");
         portfolio.setHasPhotos("NO");
-        User user=em.find(User.class,userId);
+        User user = em.find(User.class, userId);
         user.setPortfolio(portfolio);
         user.setHasPortfolio("YES");
         portfolio.setUser(user);
         em.persist(portfolio);
     }
+
     public PortfolioDetails getPortfolioByUserId(Integer userId) {
         LOG.info("getPortfolioByUserId");
         try {
@@ -195,7 +195,7 @@ public class PortfolioBean {
         }
         return null;
     }
-    
+
     public void updatePortfolioValidityByPortfolioId(Integer portfolioId, String validity) {
         LOG.info("updatePortfolioValidityByPortfolioId");
         Portfolio p = em.find(Portfolio.class, portfolioId);
@@ -206,7 +206,7 @@ public class PortfolioBean {
         //set the updated portfolio to the user
         u.setPortfolio(p);
     }
-    
+
     private void EJBException(Exception ex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
