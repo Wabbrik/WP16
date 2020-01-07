@@ -48,8 +48,15 @@ public class RegistrationFormBean {
         if (validPortfolioIds.isEmpty()) {
             LOG.info("parametruNul"); // Always presume
             validPortfolioIds.add(-2178);
-            getAllRegistrationFormsThatBelongToAnInvalidPortfolioByValidPortfolioIdsList(validPortfolioIds);// get this
-            //return null;  //NAY!!
+            //getAllRegistrationFormsThatBelongToAnInvalidPortfolioByValidPortfolioIdsList(validPortfolioIds);// get this
+             TypedQuery<RegistrationForm> typedQuery = em.createQuery("SELECT r FROM RegistrationForm r WHERE r.portfolio.id NOT IN ?1  ", RegistrationForm.class).
+                    setParameter(1, validPortfolioIds);
+            List<RegistrationForm> registrationForms = typedQuery.getResultList();
+            List<RegistrationFormDetails> rfds = new ArrayList<>();
+            for (RegistrationForm rf : registrationForms) {
+                rfds.add(new RegistrationFormDetails(rf.getId(), rf.getLastNameAtBirth(), rf.getLastName(), rf.getFirstName(), rf.getDadFirstName(), rf.getMomFirstName(), rf.getPid(), rf.getBirthdate(), rf.getPlaceOfBirthCountry(), rf.getPlaceOfBirthCounty(), rf.getPlaceOfBirthCity(), rf.getCivilStatus(), rf.getSpecialSocialSituation(), rf.getCitizenship(), rf.getEthnicity(), rf.getHomeAddressCountry(), rf.getHomeAddressCounty(), rf.getHomeAddressCity(), rf.getHomeAddressStrNrFlAp(), rf.getIdCardSeries(), rf.getIdCardNumber(), rf.getIdCardReleasedBy(), rf.getIdCardReleaseDate(), rf.getIdCardExpiryDate(), rf.getContactPhoneNumber(), rf.getContactParentPhoneNumber(), rf.getContactEmail(), rf.getDisability(), rf.getPreuniversitarStudiesInstitution(), rf.getPreuniversitarStudiesCountry(), rf.getPreuniversitarStudiesCounty(), rf.getPreuniversitarStudiesCity(), rf.getPreuniversitarStudiesDomain(), rf.getPreuniversitarStudiesLength(), rf.getPreuniversitarStudiesGraduationYear(), rf.getPreuniversitarStudiesType(), rf.getBacDiplomaSeries(), rf.getBacDiplomaNumber(), rf.getBacDiplomaReleasedBy(), rf.getBacDiplomaReleaseDateYear(), rf.getRemarks(), rf.getOption1(), rf.getOption2(), rf.getOption3()));
+            }
+            return rfds;
         } else {
             LOG.info("getAllRegistrationFormsThatBelongToAnInvalidPortfolio");
             TypedQuery<RegistrationForm> typedQuery = em.createQuery("SELECT r FROM RegistrationForm r WHERE r.portfolio.id NOT IN ?1  ", RegistrationForm.class).
