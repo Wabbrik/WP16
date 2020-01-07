@@ -48,14 +48,14 @@ public class UserBean {
     private List<UserDetails> copyUsersToDetails(List<User> users) {
         List<UserDetails> detList = new ArrayList<>();
         for (User user : users) {
-            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(),user.getHasPortfolio());
+            UserDetails ud = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(), user.getHasPortfolio());
 
             detList.add(ud);
         }
         return detList;
     }
 
-    public void createUser(String username, String email, String passwordSha256, String position,String hasPortfolio) {
+    public void createUser(String username, String email, String passwordSha256, String position, String hasPortfolio) {
         LOG.info("createUser");
         User user = new User();
         user.setUsername(username);
@@ -65,8 +65,6 @@ public class UserBean {
         user.setHasPortfolio("NO");
         em.persist(user);
     }
-
-    
 
     public int getIdByUsername(String username) {
         LOG.info("getIdByUsername");
@@ -82,30 +80,29 @@ public class UserBean {
         if (user == null) {
             return null;
         }
-        UserDetails userd = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(),user.getHasPortfolio());
+        UserDetails userd = new UserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPosition(), user.getHasPortfolio());
         return userd;
     }
-    public boolean hasUserPortfolio(Integer userId){
+
+    public boolean hasUserPortfolio(Integer userId) {
         LOG.info("hasUserPortfolio");
-        UserDetails user=getUserById(userId);
-        if(user.getHasPortfolio().equals("NO")){
+        UserDetails user = getUserById(userId);
+        if (user.getHasPortfolio().equals("NO")) {
             return false;
         }
         return true;
     }
-    
-    
-
-    private void EJBException(Exception ex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public void deleteUsersByIds(List<Integer> userIds) {
         LOG.info("deleteUsersByIds");
-        for(Integer id:userIds){
-            User user=em.find(User.class,id);
+        for (Integer id : userIds) {
+            User user = em.find(User.class, id);
             em.remove(user);
         }
+    }
+
+    private void EJBException(Exception ex) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

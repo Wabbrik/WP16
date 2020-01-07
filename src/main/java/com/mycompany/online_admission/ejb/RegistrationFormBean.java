@@ -49,7 +49,7 @@ public class RegistrationFormBean {
             LOG.info("parametruNul"); // Always presume
             validPortfolioIds.add(-2178);
             getAllRegistrationFormsThatBelongToAnInvalidPortfolioByValidPortfolioIdsList(validPortfolioIds);// get this
-            return null;
+            //return null;  //NAY!!
         } else {
             LOG.info("getAllRegistrationFormsThatBelongToAnInvalidPortfolio");
             TypedQuery<RegistrationForm> typedQuery = em.createQuery("SELECT r FROM RegistrationForm r WHERE r.portfolio.id NOT IN ?1  ", RegistrationForm.class).
